@@ -25,10 +25,10 @@ const OurTestimonial = () => {
                     pauseOnHover: false,
                     perPage: 3,
                     breakpoints: {
-                        1980: { perPage: 4 }, // xxl
-                        1368: { perPage: 4 }, // xl
-                        1024: { perPage: 4 }, // lg
-                        768: { perPage: 4 }, // md
+                        1980: { perPage: 3 }, // xxl
+                        1368: { perPage: 3 }, // xl
+                        1024: { perPage: 3 }, // lg
+                        768: { perPage: 3 }, // md
                         480: { perPage: 1 }, // sm
                         0: { perPage: 1 }, // xs
                     },
