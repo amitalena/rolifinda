@@ -1,38 +1,51 @@
-import Furniture1 from '../../assets/images/interior/interior-furniture/curology-6CJg-fOTYs4-unsplash.jpg';
-import Furniture2 from '../../assets/images/interior/interior-furniture/michael-warf-f8egRYt5RGk-unsplash.jpg'
-import Furniture3 from '../../assets/images/interior/interior-furniture/nathan-fertig-FBXuXp57eM0-unsplash.jpg'
-import Furniture4 from '../../assets/images/interior/interior-furniture/pickawood-rwa0Yh38FeA-unsplash.jpg'
-import Furniture5 from '../../assets/images/interior/interior-furniture/spacejoy-c0JoR_-2x3E-unsplash.jpg'
-import Furniture6 from '../../assets/images/interior/interior-furniture/toa-heftiba-FV3GConVSss-unsplash.jpg'
+import Furniture1 from '../../assets/images/interior/f1.webp';
+import Furniture2 from '../../assets/images/interior/f2.webp';
+import Furniture3 from '../../assets/images/interior/f3.webp';
+import Furniture4 from '../../assets/images/interior/f4.webp';
+import Furniture5 from '../../assets/images/interior/f5.webp';
+import Furniture6 from '../../assets/images/interior/f6.webp';
+
 export const furnitureData = [
     {
         id: 1,
         title: "Modern Sofa Set",
-        imagePath: Furniture1
+        description: "A stylish and comfortable modern sofa set, perfect for contemporary living rooms.",
+        imagePath: Furniture1,
+        createDate: "12-02-2025"
     },
     {
         id: 2,
         title: "Wooden Dining Table",
-        imagePath: Furniture2
+        description: "A sturdy wooden dining table with a classic finish, ideal for family gatherings.",
+        imagePath: Furniture2,
+        createDate: "13-02-2025"
     },
     {
         id: 3,
         title: "Luxury King-Size Bed",
-        imagePath: Furniture3
+        description: "An elegant king-size bed with a plush headboard for a luxurious sleeping experience.",
+        imagePath: Furniture3,
+        createDate: "14-02-2025"
     },
     {
         id: 4,
         title: "Minimalist TV Stand",
-        imagePath: Furniture4
+        description: "A sleek and modern TV stand with ample storage space for media essentials.",
+        imagePath: Furniture4,
+        createDate: "15-02-2025"
     },
     {
         id: 5,
         title: "Ergonomic Office Chair",
-        imagePath: Furniture5
+        description: "A high-quality ergonomic office chair designed for maximum comfort and support.",
+        imagePath: Furniture5,
+        createDate: "16-02-2025"
     },
     {
         id: 6,
         title: "Contemporary Coffee Table",
-        imagePath: Furniture6
+        description: "A stylish coffee table with a modern design, perfect for any living room setup.",
+        imagePath: Furniture6,
+        createDate: "17-02-2025"
     },
 ];

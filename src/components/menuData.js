@@ -2,7 +2,7 @@ export const menuData = [
     { name: "Home", route: "/" },
     { name: "AboutUs", route: "/aboutus" },
     {
-        name: "furniture",
+        name: "Furniture",
         subMenu: [
             { name: "Furniture1", route: "/furniture1" },
             { name: "Furniture2", route: "/furniture2" },

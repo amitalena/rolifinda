@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import {
-    AppBar, Box, IconButton, Stack, Toolbar, Typography, Avatar, Chip,
+    AppBar, Box, Stack, Toolbar, Typography, Chip,
     Button, Drawer, Divider, useTheme, MenuItem,
-    OutlinedInput
+    IconButton,
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import { Close as CloseIcon, MenuRounded as MenuIcon, LogoutOutlined, Search } from '@mui/icons-material';
+import { Close as CloseIcon, MenuRounded as MenuIcon, LogoutOutlined, AccountCircle } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import Rolif_img from '../assets/images/logo/rolif.png'
 import TopBar from './TopBar';
@@ -51,11 +51,10 @@ const ProfileMenu = ({ profileOpen, closeProfileMenu, handleLogout }) => (
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 300, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            sx={{ p: 3 }}
+            sx={{ p: 2 }}
         >
-            <Stack spacing={2} alignItems="center">
+            <Stack spacing={1}>
                 <Typography variant="h6" fontWeight="bold">Amit Kumar</Typography>
-                <Typography variant="body2">Full Stack Web Developer</Typography>
                 <Typography variant="body2">amitk221003@gmail.com</Typography>
                 <Divider sx={{ width: '100%' }} />
                 <MenuItem onClick={closeProfileMenu} component={Link} to="/profile" sx={{ color: '#304ffe' }}>
@@ -91,17 +90,18 @@ const PublicAppBar = ({ isVisible }) => {
 
     return (
         <AppBar
-            elevation={1}
+            elevation={0}
             position="fixed"
             sx={{
-                color: theme.palette.primary.contrastText,
-                background: scrolling ? '#FFFFFF' : '#3f51b5',
+                backdropFilter: 'blur(10px)',
+                color: scrolling ? theme.palette.primary.main : '#fff',
+                background: scrolling ? '#FFFFFF' : 'linear-gradient(135deg135deg, #FF5F6D, #FFC371)',
                 transition: 'background 0.3s ease',
             }}
         >
             <TopBar isVisible={isVisible} />
-            <Toolbar >
-                <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', px: { md: 2, lg: 2, xs: 0 } }}>
+            <Toolbar disableGutters>
+                <Box sx={{ display: 'flex', width: '100%', py: 1, px: { md: 2, lg: 6, xl: 6, xs: 2 }, justifyContent: 'space-between', alignItems: 'center', }}>
                     <Stack direction={'row'} spacing={2} alignItems={'center'}>
                         {/* Mobile Menu Button */}
                         <Chip
@@ -131,13 +131,12 @@ const PublicAppBar = ({ isVisible }) => {
                     {/* Profile / Auth Buttons */}
                     <Stack direction="row" gap={2}>
                         {isLoggedIn ? (
-                            <Chip
-                                avatar={<Avatar />}
-                                label="Profile"
-                                variant="outlined"
+                            <IconButton
+                                sx={{ cursor: "pointer", color: "#dfdfdf" }}
                                 onClick={() => setProfileOpen(true)}
-                                sx={{ cursor: 'pointer' }}
-                            />
+                            >
+                                <AccountCircle />
+                            </IconButton>
                         ) : (
                             <Button component={Link} to="/login">Login</Button>
                         )}

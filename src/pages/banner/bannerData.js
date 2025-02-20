@@ -1,8 +1,9 @@
-import Tile1 from '../../assets/images/tiles/roomtiles.jpeg';
-import Tile2 from '../../assets/images/tiles/tiles/asiia-zaitseva-myRIo8-xYPQ-unsplash.jpg';
-import Tile3 from '../../assets/images/tiles/roomtiles.jpeg';
-import Furn1 from '../../assets/images/interior/furniture_sofa.webp'
-import Elect1 from '../../assets/images/interior/bord.jpg'
+import Tile1 from '../../assets/images/tiles/t4.webp';
+import Tile2 from '../../assets/images/tiles/t5.webp';
+import Furn1 from '../../assets/images/interior/f4.webp'
+import Furn2 from '../../assets/images/interior/f6.webp'
+import Elect1 from '../../assets/images/electric/e7.webp'
+import Elect2 from '../../assets/images/electric/e5.webp'
 export const tilesData = [
     {
         id: 1,
@@ -14,11 +15,6 @@ export const tilesData = [
         imagePath: Tile2,
         name: 'Tile2',
     },
-    {
-        id: 3,
-        imagePath: Tile3,
-        name: 'Tile3',
-    }
 ];
 
 export const furnitureData = [
@@ -26,6 +22,11 @@ export const furnitureData = [
         id: 1,
         imagePath: Furn1,
         name: "F1"
+    },
+    {
+        id: 2,
+        imagePath: Furn2,
+        name: "F2"
     }
 ];
 
@@ -34,5 +35,10 @@ export const electricData = [
         id: 1,
         imagePath: Elect1,
         name: "E1"
+    },
+    {
+        id: 2,
+        imagePath: Elect2,
+        name: "E2"
     }
 ]

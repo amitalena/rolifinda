@@ -1,4 +1,4 @@
-import { Call, Email, Facebook, Instagram, LinkedIn, Search, Twitter } from "@mui/icons-material";
+import { Call, Public, Search, } from "@mui/icons-material";
 import { Box, IconButton, OutlinedInput, Stack, Typography, useTheme } from "@mui/material";
 import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
@@ -46,11 +46,13 @@ const TopBar = () => {
         >
             <Box
                 sx={{
-                    px: { md: 2, lg: 5, xs: 2 },
+                    px: { md: 2, lg: 6, xl: 6, xs: 2 },
                     py: 1,
                     display: { md: 'block', xs: 'none' },
                     background: '#FFF',
+                    color: '#333'
                 }}
+                style={hoverStyle}
             >
                 <Stack sx={{ flexDirection: { md: 'row', xs: 'column' }, alignItems: 'center', justifyContent: { md: 'space-between', xs: 'center' } }} >
                     {/* Contact Info */}
@@ -64,11 +66,12 @@ const TopBar = () => {
                             sx={{
                                 width: { xs: '100%', md: '50vw' },
                                 color: '#000',
+                                border: '1px solid #939393',
                                 backgroundColor: '#FFFFFF',
                                 borderRadius: '50px'
                             }}
                             endAdornment={
-                                <IconButton color="error" variant="contained" sx={{ '&:hover': { background: 'none', color: '#F56960' } }}><Search fontSize="small" /></IconButton>
+                                <IconButton sx={hoverStyle}><Search fontSize="small" /></IconButton>
                             }
                             placeholder="Search Package" />
                         {/* select language */}
@@ -76,11 +79,18 @@ const TopBar = () => {
 
                         </Stack>
                     </Stack>
-                    <Stack direction="row">
-                        <IconButton variant="none" sx={hoverStyle}><Facebook /></IconButton>
-                        <IconButton variant="none" sx={hoverStyle}><Instagram /></IconButton>
-                        <IconButton variant="none" sx={hoverStyle}><Twitter /></IconButton>
-                        <IconButton variant="none" sx={hoverStyle}><LinkedIn /></IconButton>
+                    <Stack direction="row" spacing={1} alignItems={'center'}>
+                        <Call sx={{ fontSize: '40px' }} />
+                        <Box>
+                            <Typography>24 support</Typography>
+                            <Typography>+91-0123456789</Typography>
+                        </Box>
+                    </Stack>
+                    <Stack direction="row" spacing={1} alignItems={'center'}>
+                        <Public sx={{ fontSize: '40px' }} />
+                        <Box>
+                            <Typography>All Over India</Typography>
+                        </Box>
                     </Stack>
                 </Stack>
 
