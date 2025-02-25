@@ -1,30 +1,48 @@
 export const menuData = [
     { name: "Home", route: "/" },
-    { name: "AboutUs", route: "/aboutus" },
+    { name: "About Us", route: "/aboutus" },
     {
-        name: "Furniture",
+        name: "Interior",
         subMenu: [
-            { name: "Furniture1", route: "/furniture1" },
-            { name: "Furniture2", route: "/furniture2" },
-            { name: "Furniture2", route: "/furniture2" },
-        ]
+            { name: "Living Room", route: "/interior/livingroom/title" },
+            { name: "Bedroom", route: "/interior/bedroom/title" },
+            { name: "Kitchen", route: "/interior/kitchen/title" },
+        ],
     },
     {
         name: "Tiles",
         subMenu: [
-            { name: "Tile 1", route: "/tile1" },
-            { name: "Tile 2", route: "/tile2" },
-            { name: "Tile 3", route: "/tile3" },
-        ]
+            {
+                name: "Living Room",
+                subMenu: [
+                    { name: "Living Room Wall", route: "/tiles/livingroom/wall" },
+                    { name: "Living Room Floor", route: "/tiles/livingroom/floor" },
+                ],
+            },
+            {
+                name: "Bedroom",
+                subMenu: [
+                    { name: "Bedroom Wall", route: "/tiles/bedroom/wall" },
+                    { name: "Bedroom Floor", route: "/tiles/bedroom/floor" },
+                ],
+            },
+            {
+                name: "Kitchen",
+                subMenu: [
+                    { name: "Kitchen Wall", route: "/tiles/kitchen/wall" },
+                    { name: "Kitchen Floor", route: "/tiles/kitchen/floor" },
+                ],
+            },
+        ],
     },
     {
         name: "Electrics",
         subMenu: [
-            { name: "ELectric 1", route: "/electric1" },
-            { name: "ELectric 2", route: "/electric2" },
-            { name: "ELectric 3", route: "/electric3" },
-        ]
+            { name: "Electric 1", route: "/electrics/electric1" },
+            { name: "Electric 2", route: "/electrics/electric2" },
+            { name: "Electric 3", route: "/electrics/electric3" },
+        ],
     },
     { name: "Blogs", route: "/blogs" },
-    { name: "ContactUs", route: "/contactus" }
-]
+    { name: "Contact Us", route: "/contactus" },
+];

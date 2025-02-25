@@ -6,7 +6,6 @@ const GoogleMap = () => {
             <Grid item xs={12}>
                 <Box
                     sx={{
-                        borderRadius: '10px',
                         width: '100%',
                         height: '400px',
                         overflow: 'hidden',

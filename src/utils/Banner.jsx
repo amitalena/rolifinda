@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-const Banner = ({ title, image, height, titleVariant = {}, text, overlayColor, spacingConfig = { lg: 6, md: 1, xs: 1 }, containerStyles = {} }) => {
+const Banner = ({ title, image, height, titleVariant = {}, text, overlayColor, spacingConfig = { lg: 6, md: 1, sm: 1, xs: 1 }, containerStyles = {} }) => {
     const { palette, spacing } = useTheme();
 
     // Fade-in animation
@@ -44,7 +44,7 @@ const Banner = ({ title, image, height, titleVariant = {}, text, overlayColor, s
         >
             <Box
                 sx={{
-                    px: { lg: spacing(spacingConfig.lg), md: spacing(spacingConfig.md), xs: spacing(spacingConfig.xs) },
+                    px: { lg: spacing(spacingConfig.lg), md: spacing(spacingConfig.md), sm: spacing(spacingConfig.sm), xs: spacing(spacingConfig.xs) },
                     position: 'relative', py: 12,
                     zIndex: 2
                 }}

@@ -67,12 +67,12 @@ const ContactUs = () => {
         {
             icon: <Drafts sx={{ color: '#fff', backgroundColor: palette.error.main, p: 2, borderRadius: '50%', height: '40px', width: '40px' }} />,
             title: 'Send an Email',
-            details: ['support@example.com', 'example.com'],
+            details: ['support@example.com', 'abc@example.com'],
         },
         {
             icon: <Headset sx={{ color: '#fff', backgroundColor: palette.error.main, p: 2, borderRadius: '50%', height: '40px', width: '40px' }} />,
             title: 'Contact Us',
-            details: ['+012 (345) 78967', '+98653222'],
+            details: ['+012 (345) 78967', '+9865322200'],
         },
     ];
 
@@ -90,13 +90,13 @@ const ContactUs = () => {
                 containerStyles={{ overflow: 'hidden' }}
                 text="Contact Us"
             />
-            <Box sx={{ px: { lg: spacing(8), md: spacing(8), xs: spacing(1) }, background: palette.info.light }}>
+            <Box sx={{ px: { lg: spacing(8), md: spacing(8), xs: spacing(1) }, background: palette.info.main }}>
                 <Box sx={{ my: 2 }}><GoogleMap /></Box>
                 <Box>
                     <Grid container spacing={2} justifyContent="space-between">
                         {contactCards.map((card, index) => (
                             <Grid item xs={12} md={4} key={index}>
-                                <Card elevation={0} sx={{ background: '#FDFDFD' }}>
+                                <Card elevation={0} sx={{ background: '#FFFFFF' }}>
                                     <CardContent>
                                         <Stack direction={'row'} spacing={2} alignItems="center" justifyContent="center">
                                             <Box
@@ -108,7 +108,7 @@ const ContactUs = () => {
                                             <Box sx={{ p: spacing(2), color: palette.primary.main }}>
                                                 <Typography variant="h5" fontWeight="bold">{card.title}</Typography>
                                                 {card.details.map((detail, i) => (
-                                                    <Typography variant='body2' key={i}>{detail}</Typography>
+                                                    <Typography variant='body2' color='info.dark' key={i}>{detail}</Typography>
                                                 ))}
                                             </Box>
                                         </Stack>
@@ -121,7 +121,7 @@ const ContactUs = () => {
                 </Box>
                 <Grid container spacing={2} sx={{ py: spacing(2) }}>
                     <Grid item lg={8} xs={12}>
-                        <Card elevation={0} sx={{ p: 4, background: '#FDFDFD', backdropFilter: 'blur(5px)' }}>
+                        <Card elevation={0} sx={{ p: 4, background: '#FFFFFF', backdropFilter: 'blur(5px)' }}>
                             <CardContent component="form" onSubmit={formik.handleSubmit}>
                                 <Grid container spacing={3}>
                                     {['name', 'email', 'contact', 'message_title'].map((field, index) => (
@@ -152,7 +152,7 @@ const ContactUs = () => {
                                         />
                                     </Grid>
                                     <Grid item xs={12} md={3}>
-                                        <Button fullWidth variant="contained" type="submit" color="primary">
+                                        <Button fullWidth size='large' variant="contained" type="submit" color="primary">
                                             Send
                                         </Button>
                                     </Grid>

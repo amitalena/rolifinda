@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import SpliderComponent from "../../utils/SpliderComponent";
 import { tilesData } from "./tilesData";
-
+import TilesComponent from "../../utils/TilesComponent";
 
 const TilesPage = () => {
     const navigate = useNavigate();
@@ -13,9 +12,9 @@ const TilesPage = () => {
     };
 
     return (
-        <SpliderComponent
+        <TilesComponent
             data={tilesData}
-            title="Shop Latest Tiles"
+            title="Our Tiles Product"
             onClick={handleTilesPageClick}
         />
     );

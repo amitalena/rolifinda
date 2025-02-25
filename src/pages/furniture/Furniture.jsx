@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import SliderComponent from "../../utils/SpliderComponent";
 import { furnitureData } from "./furnitureData";
+import FurnitureComponent from "../../utils/FurnitureComponent";
 
 const Furniture = () => {
     const navigate = useNavigate();
@@ -17,9 +17,9 @@ const Furniture = () => {
     };
 
     return (
-        <SliderComponent
+        <FurnitureComponent
             data={furnitureData}
-            title="Shop Furniture"
+            title="Our Furniture Product"
             onClick={handleFurniturePageClick}
         />
     );

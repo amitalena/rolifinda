@@ -1,44 +1,52 @@
-import Tile1 from '../../assets/images/tiles/t4.webp';
-import Tile2 from '../../assets/images/tiles/t5.webp';
-import Furn1 from '../../assets/images/interior/f4.webp'
-import Furn2 from '../../assets/images/interior/f6.webp'
-import Elect1 from '../../assets/images/electric/e7.webp'
-import Elect2 from '../../assets/images/electric/e5.webp'
+import T1 from '../../assets/images/tiles/t3.webp';
+import T2 from '../../assets/images/tiles/t6.webp';
+import F1 from '../../assets/images/interior/f8.webp';
+import F2 from '../../assets/images/interior/f2.webp';
+import E1 from '../../assets/images/electric/e3.webp';
+import E2 from '../../assets/images/electric/e2.webp';
+
+
 export const tilesData = [
     {
         id: 1,
-        imagePath: Tile1,
-        name: 'Tile1',
+        title: "Marble Tile",
+        imagePath: T1,
+        description: "A luxurious and elegant tile with natural veining, perfect for floors and walls.",
     },
     {
         id: 2,
-        imagePath: Tile2,
-        name: 'Tile2',
+        title: "Ceramic Tile",
+        imagePath: T2,
+        description: "A durable and versatile tile available in various colors and patterns, ideal for both walls and floors."
     },
 ];
 
 export const furnitureData = [
     {
         id: 1,
-        imagePath: Furn1,
-        name: "F1"
+        title: "Modern Sofa Set",
+        description: "A stylish and comfortable modern sofa set, perfect for contemporary living rooms.",
+        imagePath: F1,
     },
     {
         id: 2,
-        imagePath: Furn2,
-        name: "F2"
-    }
+        title: "Wooden Dining Table",
+        description: "A sturdy wooden dining table with a classic finish, ideal for family gatherings.",
+        imagePath: F2,
+    },
 ];
 
 export const electricData = [
     {
         id: 1,
-        imagePath: Elect1,
-        name: "E1"
+        title: "Switchboard",
+        imagePath: E1,
+        description: "High-quality switchboards for modern homes.",
     },
     {
         id: 2,
-        imagePath: Elect2,
-        name: "E2"
-    }
+        title: "Wired Light",
+        imagePath: E2,
+        description: "Energy-efficient wired lighting solutions.",
+    },
 ]

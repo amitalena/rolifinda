@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom"
-import PublicAppBar from "../../components/PublicAppBar"
 import Footer from '../../components/Footer';
 import { Toolbar } from "@mui/material";
+import NewAppBar from "../../components/appbar/NewAppBar";
 
 
 const PublicRoutes = () => {
     return (
         <>
-            <PublicAppBar />
+            <NewAppBar />
             <Toolbar />
             <Outlet />
             <Footer />

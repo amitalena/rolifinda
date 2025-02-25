@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import SliderComponent from "../../utils/SpliderComponent";
 import { electricData } from "./electricData";
-
+import ElectricComponent from '../../utils/ElectricComponent'
 const ElectricPage = () => {
     const navigate = useNavigate();
     const handleElectricPageClick = (id) => {
@@ -13,9 +12,9 @@ const ElectricPage = () => {
     };
 
     return (
-        <SliderComponent
+        <ElectricComponent
             data={electricData}
-            title="Shop Electric"
+            title="Our Electric Product"
             onClick={handleElectricPageClick}
         />
     );

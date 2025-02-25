@@ -17,8 +17,9 @@ export const blogData = [
         imagePath: F1,
         title: "Modern Minimalist Furniture Trends for 2024",
         createdBy: "Admin",
-        comment: "3",
-        createDate: "12/02/25",
+        comments: 3,
+        categories: 'Uncategorized',
+        createDate: "2025-02-11",
         description: "Discover the latest trends in modern minimalist furniture and how to incorporate them into your home for a sleek, contemporary look."
     },
     {
@@ -26,8 +27,9 @@ export const blogData = [
         imagePath: F2,
         title: "Eco-Friendly Furniture: Sustainable Choices for Your Home",
         createdBy: "Admin",
-        comment: "5",
-        createDate: "13/02/25",
+        comments: 5,
+        categories: 'Uncategorized',
+        createDate: "2025-02-12",
         description: "Explore eco-friendly furniture options that combine sustainability with style, perfect for environmentally conscious homeowners."
     },
     {
@@ -35,8 +37,9 @@ export const blogData = [
         imagePath: F3,
         title: "Maximizing Small Spaces with Multi-Functional Furniture",
         createdBy: "Admin",
-        comment: "2",
-        createDate: "14/02/25",
+        comments: 2,
+        categories: 'Uncategorized',
+        createDate: "2025-02-13",
         description: "Learn how multi-functional furniture can help you make the most of small spaces without compromising on design or comfort."
     },
     {
@@ -44,8 +47,9 @@ export const blogData = [
         imagePath: T1,
         title: "The Art of Mixing Vintage and Modern Furniture",
         createdBy: "Admin",
-        comment: "7",
-        createDate: "15/02/25",
+        comments: 7,
+        categories: 'Uncategorized',
+        createDate: "2025-02-14",
         description: "Find out how to blend vintage and modern furniture pieces to create a unique and timeless interior design."
     },
     {
@@ -53,8 +57,9 @@ export const blogData = [
         imagePath: T2,
         title: "Top 5 Luxurious Furniture Pieces for Your Living Room",
         createdBy: "Admin",
-        comment: "6",
-        createDate: "16/02/25",
+        comments: 6,
+        categories: 'Uncategorized',
+        createDate: "2025-02-15",
         description: "Upgrade your living room with these top 5 luxurious furniture pieces that exude elegance and sophistication."
     },
     {
@@ -62,8 +67,9 @@ export const blogData = [
         imagePath: T3,
         title: "How to Choose the Perfect Dining Table for Your Home",
         createdBy: "Admin",
-        comment: "4",
-        createDate: "17/02/25",
+        comments: 4,
+        categories: 'Uncategorized',
+        createDate: "2025-02-16",
         description: "A comprehensive guide to selecting the ideal dining table that fits your space, style, and lifestyle."
     },
     {
@@ -71,8 +77,9 @@ export const blogData = [
         imagePath: L1,
         title: "Creating a Cozy Bedroom with the Right Furniture",
         createdBy: "Admin",
-        comment: "1",
-        createDate: "18/02/25",
+        comments: 1,
+        categories: 'Uncategorized',
+        createDate: "2025-02-17",
         description: "Transform your bedroom into a cozy retreat with the perfect furniture choices and layout tips."
     },
     {
@@ -80,8 +87,9 @@ export const blogData = [
         imagePath: L2,
         title: "Outdoor Furniture: Stylish and Durable Options for Your Patio",
         createdBy: "Admin",
-        comment: "8",
-        createDate: "19/02/25",
+        comments: 8,
+        categories: 'Uncategorized',
+        createDate: "2025-02-18",
         description: "Discover stylish and durable outdoor furniture options to create a welcoming and functional patio space."
     },
     {
@@ -89,8 +97,9 @@ export const blogData = [
         imagePath: L3,
         title: "The Rise of Smart Furniture: Technology Meets Design",
         createdBy: "Admin",
-        comment: "9",
-        createDate: "20/02/25",
+        comments: 9,
+        categories: 'Uncategorized',
+        createDate: "2025-02-19",
         description: "Explore how smart furniture is revolutionizing interior design with innovative features and cutting-edge technology."
     },
     {
@@ -98,8 +107,9 @@ export const blogData = [
         imagePath: F4,
         title: "Maximizing Small Spaces with Multi-Functional Furniture",
         createdBy: "Admin",
-        comment: "2",
-        createDate: "14/02/25",
+        comments: 2,
+        categories: 'Uncategorized',
+        createDate: "2025-02-20",
         description: "Learn how multi-functional furniture can help you make the most of small spaces without compromising on design or comfort."
     },
     {
@@ -107,8 +117,9 @@ export const blogData = [
         imagePath: T4,
         title: "Maximizing Small Spaces with Multi-Functional tiles",
         createdBy: "Admin",
-        comment: "2",
-        createDate: "14/02/25",
+        comments: 2,
+        categories: 'Uncategorized',
+        createDate: "2025-02-21",
         description: "Learn how multi-functional furniture can help you make the most of small spaces without compromising on design or comfort."
     },
     {
@@ -116,8 +127,9 @@ export const blogData = [
         imagePath: L4,
         title: "Maximizing Small Spaces with Multi-Functional lights",
         createdBy: "Admin",
-        comment: "2",
-        createDate: "14/02/25",
+        comments: 2,
+        categories: 'Uncategorized',
+        createDate: "2025-02-12",
         description: "Learn how multi-functional furniture can help you make the most of small spaces without compromising on design or comfort."
     },
 ];

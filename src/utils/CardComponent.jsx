@@ -1,44 +1,109 @@
 /* eslint-disable react/prop-types */
-import { Card, CardContent, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { Box, Card, CardContent, Typography } from "@mui/material";
+import gsap from "gsap";
 
 const CardComponent = ({ id, imagePath, title, onClick }) => {
+    const imageRef = useRef(null);
+    const overlayRef = useRef(null);
+    const cardRef = useRef(null);
+    const textRef = useRef(null);
+
+    useEffect(() => {
+        // GSAP Hover Animation
+        const hoverIn = () => {
+            gsap.to(imageRef.current, { scale: 1.1, duration: 0.4, ease: "power2.out" });
+            gsap.to(overlayRef.current, { opacity: 1, duration: 0.4, ease: "power2.out" });
+            gsap.to(cardRef.current, { backgroundColor: "rgba(232, 109, 16, 0.9)", duration: 0.4, ease: "power2.out" });
+            gsap.to(textRef.current, { color: "white", duration: 0.4, ease: "power2.out" });
+        };
+
+        const hoverOut = () => {
+            gsap.to(imageRef.current, { scale: 1, duration: 0.4, ease: "power2.out" });
+            gsap.to(overlayRef.current, { opacity: 0, duration: 0.4, ease: "power2.out" });
+            gsap.to(cardRef.current, { backgroundColor: "#fdfdfd", duration: 0.4, ease: "power2.out" });
+            gsap.to(textRef.current, { color: "black", duration: 0.4, ease: "power2.out" });
+        };
+
+        const cardElement = cardRef.current;
+        if (cardElement) {
+            cardElement.addEventListener("mouseenter", hoverIn);
+            cardElement.addEventListener("mouseleave", hoverOut);
+        }
+
+        return () => {
+            if (cardElement) {
+                cardElement.removeEventListener("mouseenter", hoverIn);
+                cardElement.removeEventListener("mouseleave", hoverOut);
+            }
+        };
+    }, []);
+
     return (
         <Card
+            ref={cardRef}
             elevation={0}
+            onClick={() => onClick(id)}
             sx={{
+                width: '100%',
                 background: "#fdfdfd",
-                position: "relative",
+                my: 2,
                 textAlign: "center",
                 cursor: "pointer",
-                borderRadius: "8px",
                 overflow: "hidden",
-                m: 1,
-                width: "100%",
+                position: "relative",
+                transition: "background 0.4s ease-out",
             }}
-            onClick={() => onClick(id)}
         >
-            {/* Motion Background Image */}
-            <motion.div
-                whileHover={{ scale: 1.08 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                style={{
-                    height: "250px",
-                    width: "100%",
-                    background: `url(${imagePath})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
+            {/* Image Container */}
+            <Box
+                sx={{
+                    m: 2,
+                    width: { md: "290px", xs: "100vw" },
+                    height: { xs: "200px", sm: "250px", md: "250px" },
                     position: "relative",
+                    overflow: "hidden",
                 }}
             >
-                {/* Hover Overlay */}
-                <motion.div
-                    whileHover={{ background: "rgba(0,0,0,0.5)" }}
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", transition: "background 0.3s ease", }}
+                {/* Image with Hover Effect */}
+                <div
+                    ref={imageRef}
+                    style={{
+                        height: "100%",
+                        width: "100%",
+                        backgroundImage: `url(${imagePath})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        transition: "transform 0.4s ease-out",
+                    }}
                 />
-            </motion.div>
+
+                {/* Hover Overlay */}
+                <div
+                    ref={overlayRef}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        height: "100%",
+                        width: "100%",
+                        backgroundColor: "rgba(0,0,0, 0.5)",
+                        opacity: 0,
+                        transition: "opacity 0.4s ease-out",
+                    }}
+                />
+            </Box>
+
             <CardContent>
-                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                <Typography
+                    ref={textRef}
+                    variant="h6"
+                    sx={{
+                        fontWeight: "bold",
+                        fontSize: { xs: "1.1rem", sm: "1.25rem" },
+                        transition: "color 0.4s ease-out",
+                    }}
+                >
                     {title}
                 </Typography>
             </CardContent>
@@ -46,4 +111,4 @@ const CardComponent = ({ id, imagePath, title, onClick }) => {
     );
 };
 
-export default CardComponent;
+export default React.memo(CardComponent);

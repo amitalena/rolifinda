@@ -1,9 +1,11 @@
-import { Box, Stack, Typography, useTheme, Grid, Button, } from '@mui/material';
+import { Box, Stack, Typography, useTheme, Grid, Button, Divider, } from '@mui/material';
 import { motion } from 'framer-motion';
-import Ab1 from '../../assets/images/interior/f6.webp';
-import WCU from "../../assets/images/banners/whychooseus.webp";
+import T1 from '../../assets/images/tiles/t6.webp';
+import F1 from '../../assets/images/interior/f4.webp';
+import E1 from '../../assets/images/electric/e6.webp';
+
 const OurServices = () => {
-    const { spacing } = useTheme();
+    const { spacing, palette } = useTheme();
 
     // Animation variants
     const slideLeft = {
@@ -22,8 +24,8 @@ const OurServices = () => {
                 sx={{
                     position: "relative",
                     py: 6,
-                    px: { md: 15, xs: 2 },
-                    background: `url(${WCU}) center/cover no-repeat`,
+                    px: { md: 15, xs: 1 },
+                    background: palette.info.main,
                     "::before": {
                         content: '""',
                         position: "absolute",
@@ -31,7 +33,7 @@ const OurServices = () => {
                         left: 0,
                         width: "100%",
                         height: "100%",
-                        backgroundColor: "rgba(0, 0, 0, 0.3)",
+                        backgroundColor: "rgba(0, 0, 0, 0.2)",
                         zIndex: 1,
                     },
                 }}
@@ -40,29 +42,66 @@ const OurServices = () => {
                     <Typography
                         variant="h3"
                         fontWeight="bold"
-                        textAlign="center"
+                        textAlign="left"
                         color="white"
                     >
                         Our Services
+                        <Divider sx={{ background: palette.primary.deep, height: '3px', width: '90px' }} />
                     </Typography>
                 </Stack>
                 <Grid container sx={{ alignItems: 'center', justifyContent: 'space-around', mt: 1, p: spacing(3) }}>
                     {/* Grid 1 - Animate from left */}
                     <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
-                        <Typography variant='h4' fontWeight={'bold'}>Welcome to our site!</Typography>
-                        <Stack sx={{ pr: { md: spacing(10), xs: 0 } }}>
-                            <Typography variant='h4' fontWeight={'semi-bold'}>Residential Interior Design & Fit-Out</Typography>
-                            <Box sx={{ pr: spacing(5) }}>
-                                <Typography variant='body2' py={spacing(3)}>People come to us because they want, need and expect something that they just won&#39;t get from other companies. We haven&apos;t earned our reputation of leading company overnight. It has taken years of listening to what contractors and freelancers hunger for - and we deliver it in abundance!</Typography>
-                                <Typography variant='body2'>Our service is different to other companies because of our unrivalled expertise, attention to detail and outstanding customer service. Companies come and go but RAD has stood the test of time because we understand our industry and more importantly your needs.</Typography>
-                            </Box>
+                        <Typography variant='h4' color='primary' fontWeight={'bold'}>Residential Interior Design & Fit-Out</Typography>
+                        <Box>
+                            <Stack spacing={1} sx={{ pt: 3, pr: { md: spacing(10), xs: spacing(0) } }}>
+                                <Typography color='info.dark' variant='body2'> Living Room Design: Elevate your living room with custom furniture, lighting, and decorative accents that suit your style.</Typography>
+                                <Typography color='info.dark' variant='body2'>Bedroom & Kitchen Fit-Outs: Transform personal spaces into sanctuaries with functional layouts and stylish finishes.</Typography>
+                                <Typography color='info.dark' variant='body2'>Full Home Renovation: From concept to completion, we offer comprehensive solutions that cater to all rooms and needs.</Typography>
+                            </Stack>
+                            <Box sx={{ width: '200px', py: spacing(2) }}> <Button variant={'contained'}>Know More</Button></Box>
+                        </Box>
+                    </Grid>
+
+                    {/* Grid 2 - Animate from right */}
+                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                        <Box component="img" src={F1} sx={{ width: '100%', height: '50vh' }} alt={T1} />
+                    </Grid>
+
+                    {/* Grid 2 - Animate from right */}
+                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                        <Box component="img" src={T1} sx={{ width: '100%', height: '50vh' }} alt={T1} />
+                    </Grid>
+                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
+                        <Stack spacing={2} sx={{ pl: { md: spacing(10), xs: 0 } }}>
+                            <Typography variant='h4' color='primary' fontWeight={'bold'}>Tile & Sanitary Ware</Typography>
+                            <Stack spacing={1} sx={{ pr: { md: spacing(5), xs: spacing(0) } }}>
+                                <Typography variant='body2'>Floor Tiles: High-quality ceramic, porcelain, and vinyl floor tiles that come in a variety of colors, textures, and patterns.</Typography>
+                                <Typography variant='body2'>Wall Tiles: Stunning wall tiles in diverse finishes, from glossy to matte, perfect for bathrooms, kitchens, and other indoor spaces.</Typography>
+                                <Typography variant='body2'>Outdoor Tiles: Durable, slip-resistant tiles ideal for outdoor spaces like patios, gardens, and walkways.</Typography>
+                                <Typography variant='body2'>Mosaic Tiles: Beautiful mosaic tile options for decorative accents, backsplashes, and feature walls.</Typography>
+
+                            </Stack>
+                            <Box sx={{ width: '200px', py: spacing(2) }}> <Button variant={'contained'}>Know More</Button></Box>
+                        </Stack>
+                    </Grid>
+
+                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                        <Stack spacing={2} sx={{ pr: { md: spacing(10), xs: 0 } }}>
+                            <Typography variant='h4' color='primary' fontWeight={'semi-bold'}>Residential Interior Design & Fit-Out</Typography>
+                            <Stack spacing={1} sx={{ pr: { md: spacing(5), xs: spacing(0) } }}>
+                                <Typography variant='body2'>Electrical Wiring & Rewiring: Ensuring your home’s electrical system is safe, up-to-date, and fully functional.</Typography>
+                                <Typography variant='body2'>Lighting Installation: From ambient to task lighting, we install energy-efficient and aesthetically pleasing lighting solutions.</Typography>
+                                <Typography variant='body2'>Panel Upgrades & Circuit Breakers: Upgrading your electrical panel to meet modern electrical demands, enhancing safety and functionality.</Typography>
+                                <Typography variant='body2'>Smart Home Integration: Installation of smart devices and automation systems to control lighting, temperature, and security with ease.</Typography>
+                            </Stack>
                             <Box sx={{ width: '200px', py: spacing(2) }}> <Button variant={'contained'}>Know More</Button></Box>
                         </Stack>
                     </Grid>
 
                     {/* Grid 2 - Animate from right */}
                     <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
-                        <Box component="img" src={Ab1} sx={{ width: '100%', height: '50vh' }} alt={Ab1} />
+                        <Box component="img" src={E1} sx={{ width: '100%', height: '50vh' }} alt={T1} />
                     </Grid>
                 </Grid>
             </Box>

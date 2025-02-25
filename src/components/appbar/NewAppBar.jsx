@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import {
     AppBar, Box, Stack, Toolbar, Typography, Chip,
@@ -7,11 +8,12 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 import { Close as CloseIcon, MenuRounded as MenuIcon, LogoutOutlined, AccountCircle } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import Rolif_img from '../assets/images/logo/rolif.png'
-import TopBar from './TopBar';
-import { menuData } from './menuData';
-import AccordionMenu from './AccordionMenu';
-import DropdownMenu from './DropdownMenu';
+import Rolif_img from '../../assets/images/logo/rolif.png'
+import DropdownMenu from '../DropdownMenu';
+import { menuData } from '../menuData';
+import NewTopBar from './NewTopBar';
+import AccordionMenu from './../AccordionMenu';
+
 
 const Logo = () => (
     <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
@@ -23,27 +25,27 @@ const Logo = () => (
     </Typography>
 );
 
-// eslint-disable-next-line react/prop-types
+
 const MobileMenu = ({ menuOpen, handleDrawerToggle }) => (
-    <Drawer anchor="left" open={menuOpen} onClose={handleDrawerToggle}>
+    <Drawer anchor="left" open={menuOpen} onClose={handleDrawerToggle} sx={{ '& .MuiDrawer-paper': { width: 260, borderTopRightRadius: '20px', borderBottomRightRadius: '20px' } }}>
         <Box component={motion.div}
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -300, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            sx={{ py: 1, height: '100%', width: 250, overflowY: 'auto' }}>
+            sx={{ py: 1, height: '100%', width: 240, }}>
             <AccordionMenu menuData={menuData} onClose={handleDrawerToggle} />
         </Box>
     </Drawer>
 );
 
-// eslint-disable-next-line react/prop-types
+
 const ProfileMenu = ({ profileOpen, closeProfileMenu, handleLogout }) => (
     <Drawer
         anchor="right"
         open={profileOpen}
         onClose={closeProfileMenu}
-        sx={{ '& .MuiDrawer-paper': { width: 260 } }}
+        sx={{ '& .MuiDrawer-paper': { width: 260, borderTopLeftRadius: '20px', borderBottomLeftRadius: '20px' } }}
     >
         <Box
             component={motion.div}
@@ -68,8 +70,8 @@ const ProfileMenu = ({ profileOpen, closeProfileMenu, handleLogout }) => (
     </Drawer>
 );
 
-// eslint-disable-next-line react/prop-types
-const PublicAppBar = ({ isVisible }) => {
+
+const NewAppBar = ({ isVisible }) => {
     const navigate = useNavigate();
     const theme = useTheme();
     const [menuOpen, setMenuOpen] = useState(false);
@@ -93,56 +95,78 @@ const PublicAppBar = ({ isVisible }) => {
             elevation={0}
             position="fixed"
             sx={{
-                backdropFilter: 'blur(10px)',
-                color: scrolling ? theme.palette.primary.main : '#fff',
-                background: scrolling ? '#FFFFFF' : 'linear-gradient(to left, #FF5F6D, #FFC371)',
-                transition: 'background 0.3s ease',
+                color: scrolling ? "#F12" : "#333",
+                background: scrolling ? "#000" : "#000",
+                transition: "background 0.3s ease-in-out",
+                zIndex: 1100, // Ensures it stays above other content
             }}
         >
-            <TopBar isVisible={isVisible} />
-            <Toolbar disableGutters>
-                <Box sx={{ display: 'flex', width: '100%', py: 1, px: { md: 2, lg: 6, xl: 6, xs: 1 }, justifyContent: 'space-between', alignItems: 'center', }}>
-                    <Stack direction={'row'} spacing={2} alignItems={'center'}>
-                        {/* Mobile Menu Button */}
-                        <Chip
-                            icon={menuOpen ? <CloseIcon sx={{ color: "#FFF" }} /> : <MenuIcon sx={{ color: theme.palette.primary.light }} />}
-                            label="Menu"
-                            variant='none'
-                            onClick={() => setMenuOpen(prev => !prev)}
-                            sx={{ cursor: "pointer", '&:hover': { backgroundColor: "#FFF" }, p: 1, borderRadius: '50px', py: 2.2, background: '#fff' }}
-                        />
+            {/* Top Bar */}
+            <NewTopBar isVisible={!scrolling} />
 
-                        {/* Logo (Visible on scroll) */}
+            <Toolbar disableGutters>
+                <Box
+                    sx={{
+                        display: "flex",
+                        width: "100%",
+                        py: 2,
+                        px: { md: 2, lg: 12, xl: 12, xs: 1 },
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                >
+                    {/* Logo & Desktop Menu */}
+                    <Stack direction="row" alignItems="center">
                         <motion.div
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: scrolling ? 1 : 1 }}
+                            animate={{ opacity: scrolling ? 1 : 0 }}
                             transition={{ duration: 0.3 }}
                         >
                             <Logo />
                         </motion.div>
+
                         {/* Desktop Navigation */}
-                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
                             {menuData.map((menuItem, index) => (
                                 <DropdownMenu key={index} items={[menuItem]} />
                             ))}
                         </Box>
                     </Stack>
 
-                    {/* Profile / Auth Buttons */}
-                    <Stack direction="row" gap={2}>
+                    {/* Profile & Mobile Menu Toggle */}
+                    <Stack direction="row" alignItems="center">
                         {isLoggedIn ? (
                             <IconButton
                                 sx={{ cursor: "pointer", color: "#dfdfdf" }}
                                 onClick={() => setProfileOpen(true)}
                             >
-                                <AccountCircle sx={{ fontSize: '30px' }} />
+                                <AccountCircle sx={{ fontSize: "30px" }} />
                             </IconButton>
                         ) : (
                             <Button component={Link} to="/login">Login</Button>
                         )}
+
+                        {/* Mobile Menu Toggle */}
+                        <Chip
+                            sx={{
+                                pl: 1,
+                                pt: 0.5,
+                                display: { md: "none", xs: "block" },
+                                cursor: "pointer",
+                                background: "#fff",
+                            }}
+                            onClick={() => setMenuOpen((prev) => !prev)}
+                            icon={
+                                menuOpen ? (
+                                    <CloseIcon sx={{ color: "#FFF" }} />
+                                ) : (
+                                    <MenuIcon sx={{ color: "#FF8080" }} />
+                                )
+                            }
+                            variant="outlined"
+                        />
                     </Stack>
                 </Box>
-
             </Toolbar>
 
             {/* Mobile Menu Drawer */}
@@ -154,8 +178,8 @@ const PublicAppBar = ({ isVisible }) => {
                 closeProfileMenu={() => setProfileOpen(false)}
                 handleLogout={handleLogout}
             />
-        </AppBar >
+        </AppBar>
     );
 };
 
-export default PublicAppBar;
+export default NewAppBar;

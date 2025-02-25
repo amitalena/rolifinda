@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import BlogComponent from "../../utils/BlogComponent";
 import { blogData } from "./blogData";
-import LatestBlog from "./LatesBlog";
-
 
 const SingleBlog = () => {
     const [mainBlog, setMainBlog] = useState(null);
@@ -34,7 +32,7 @@ const SingleBlog = () => {
     }, []);
 
     if (!mainBlog) {
-        return <div>Loading...</div>; // Show a loading state while data is being fetched
+        return <div>Loading...</div>;
     }
     return (
         <>
@@ -42,7 +40,6 @@ const SingleBlog = () => {
                 blog={mainBlog}
                 latestBlogs={latestBlogs}
             />
-            <LatestBlog />
         </>
     );
 };

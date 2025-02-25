@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BlogComponent from "../../utils/BlogComponent";
 import { electricData } from "./electricData";
 import ViewComponent from "../../utils/ViewComponent";
 
