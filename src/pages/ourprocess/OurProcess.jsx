@@ -1,58 +1,60 @@
-import { Box, Divider, Grid, Stack, Typography, useTheme } from "@mui/material";
-import Img1 from "../../assets/images/banners/processinterior.webp";
-import {
-    EngineeringOutlined,
-    PersonOutline,
-    SevereColdOutlined,
-    TipsAndUpdatesOutlined,
-    VerifiedOutlined
-} from "@mui/icons-material";
+import { Box, Card, CardContent, Divider, Grid, Stack, Typography, useTheme } from "@mui/material";
+import { TipsAndUpdatesOutlined, VerifiedOutlined, SevereColdOutlined, Groups3Outlined } from "@mui/icons-material";
 
 const processData = [
-    { name: "Consultation & Requirement Analysis", icon: PersonOutline, description: "We begin by understanding your specific needs and project requirements. Our team works closely with you to recommend the best products for your space or project." },
-    { name: "Product Selection & Customization", icon: TipsAndUpdatesOutlined, description: "After selecting the products that suit your needs, we can also provide customizations to meet your exact specifications." },
-    { name: "Order Placement & Delivery", icon: VerifiedOutlined, description: "Once the order is confirmed, we ensure a smooth delivery process. We track your order to guarantee timely arrival and product quality." },
-    { name: "Installation Assistance", icon: SevereColdOutlined, description: "For electrical items, we offer expert guidance on installation, and we provide recommendations for professional installation services if needed." },
-    { name: "Post-Sale Support", icon: EngineeringOutlined, description: "We offer reliable post-sale services, including warranty support and assistance with any issues you may encounter." },
+    { id: 1, color: "rgba(112,44,90,0.8)", title: "Meet Customers", icon: <Groups3Outlined sx={{ fontSize: "70px" }} />, description: "We begin by understanding your specific needs and project requirements. Our team works closely with you to recommend the best products for your space or project." },
+    { id: 2, color: "rgba(44, 85, 112, 0.8)", title: "Planning & Research", icon: <TipsAndUpdatesOutlined sx={{ fontSize: "70px" }} />, description: "After selecting the products that suit your needs, we can also provide customizations to meet your exact specifications." },
+    { id: 3, color: "rgba(106, 35, 44, 0.8)", title: "Finalize the Design", icon: <VerifiedOutlined sx={{ fontSize: "70px" }} />, description: "Once the order is confirmed, we ensure a smooth delivery process. We track your order to guarantee timely arrival and product quality." },
+    { id: 4, color: "rgba(112, 104, 44, 0.8)", title: "Installation Assistance", icon: <SevereColdOutlined sx={{ fontSize: "70px" }} />, description: "For electrical items, we offer expert guidance on installation, and we provide recommendations for professional installation services if needed." },
 ];
 
 const OurProcess = () => {
     const theme = useTheme();
 
     return (
-        <Box sx={{ py: 4, px: { xs: 2, md: 2, lg: 12, xl: 12 }, background: theme.palette.info.deep }}>
-            <Typography variant="h3" fontWeight="bold" color="info" mb={3}>
-                Our Process
-                <Divider sx={{ background: theme.palette.primary.deep, height: 3, width: 100 }} />
+        <Box sx={{ py: 6, px: { xs: 2, md: 4, lg: 12 }, background: theme.palette.info.light }}>
+            {/* Section Title */}
+            <Typography variant="h3" fontWeight="bold" color="info.dark" textAlign="center" mb={3}>
+                Our Working Process
             </Typography>
+            <Divider sx={{ background: theme.palette.primary.main, height: 3, width: 120, mx: "auto", mb: 4 }} />
 
-            <Grid container spacing={2}>
-                <Grid item xs={12} lg={4}>
-                    <Box sx={{ height: 450, width: "100%", position: "relative", overflow: "hidden", borderRadius: 2 }}>
-                        <Box sx={{ position: "absolute", height: "90%", width: "100%", background: theme.palette.primary.main, bottom: 50, left: 50, zIndex: 1, borderRadius: 2 }} />
-                        <Box sx={{ position: "absolute", height: "100%", width: "100%", top: 20, right: 20, zIndex: 2, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                            <img src={Img1} alt="Process" style={{ width: "90%", height: "90%", objectFit: "cover", borderRadius: 2 }} />
-                        </Box>
-                    </Box>
-                </Grid>
+            {/* Process Cards */}
+            <Grid container spacing={2} justifyContent="center">
+                {processData.map((card) => (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={card.id}>
+                        <Card sx={{ borderRadius: 2, boxShadow: 1, height: '300px', position: "relative", textAlign: "center", p: 2 }}>
+                            {/* Top Border with Dynamic Color */}
+                            <Box sx={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "10px",
+                                backgroundColor: card.color,
+                            }} />
 
-                <Grid item xs={12} lg={8}>
-                    <Grid container spacing={2}>
-                        {processData.map(({ name, icon: Icon, description }, index) => (
-                            <Grid item xs={12} md={6} key={index}>
-                                <Box sx={{ p: 3, border: "1px solid #eee", height: "auto" }}>
-                                    <Stack direction="row" spacing={2} alignItems="center">
-                                        <Icon sx={{ fontSize: 80, color: theme.palette.primary.main }} />
-                                        <Stack>
-                                            <Typography variant="h6" fontWeight="bold" color="info.main">{name}</Typography>
-                                            <Typography variant="body2" color="info.dark">{description}</Typography>
-                                        </Stack>
-                                    </Stack>
-                                </Box>
-                            </Grid>
-                        ))}
+                            <CardContent>
+                                <Stack spacing={2} alignItems="center">
+                                    {/* Icon with proper color */}
+                                    <Typography sx={{ color: card.color }}>
+                                        {card.icon}
+                                    </Typography>
+                                    <Divider sx={{ background: theme.palette.primary.main, height: 2, width: 1000, mx: "auto", mb: 4 }} />
+                                    {/* Title */}
+                                    <Typography variant="h5" fontWeight="bold" color={card.color}>
+                                        {card.title}
+                                    </Typography>
+
+                                    {/* Description */}
+                                    <Typography variant="body2" color="text.secondary">
+                                        {card.description}
+                                    </Typography>
+                                </Stack>
+                            </CardContent>
+                        </Card>
                     </Grid>
-                </Grid>
+                ))}
             </Grid>
         </Box>
     );

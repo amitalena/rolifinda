@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import {
@@ -91,94 +92,99 @@ const NewAppBar = ({ isVisible }) => {
     };
 
     return (
-        <AppBar
-            elevation={0}
-            position="fixed"
-            sx={{
-                color: scrolling ? "#F12" : "#333",
-                background: scrolling ? "#000" : "#000",
-                transition: "background 0.3s ease-in-out",
-                zIndex: 1100, // Ensures it stays above other content
-            }}
-        >
-            {/* Top Bar */}
-            <NewTopBar isVisible={!scrolling} />
+        <>
+            <AppBar
+                elevation={0}
+                position="fixed"
+                sx={{
+                    color: scrolling ? "#F12" : "#333",
+                    background: scrolling ? "#000" : "#000",
+                    // background: 'linear-gradient(90deg, rgb(54, 79, 214), rgb(43, 48, 59))',
+                    transition: "background 0.3s ease-in-out",
+                    zIndex: 1100, // Ensures it stays above other content
+                }}
+            >
+                {/* Top Bar */}
+                <NewTopBar isVisible={!scrolling} />
 
-            <Toolbar disableGutters>
-                <Box
-                    sx={{
-                        display: "flex",
-                        width: "100%",
-                        py: 2,
-                        px: { md: 2, lg: 12, xl: 12, xs: 1 },
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                    }}
-                >
-                    {/* Logo & Desktop Menu */}
-                    <Stack direction="row" alignItems="center">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: scrolling ? 1 : 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <Logo />
-                        </motion.div>
-
-                        {/* Desktop Navigation */}
-                        <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                            {menuData.map((menuItem, index) => (
-                                <DropdownMenu key={index} items={[menuItem]} />
-                            ))}
-                        </Box>
-                    </Stack>
-
-                    {/* Profile & Mobile Menu Toggle */}
-                    <Stack direction="row" alignItems="center">
-                        {isLoggedIn ? (
-                            <IconButton
-                                sx={{ cursor: "pointer", color: "#dfdfdf" }}
-                                onClick={() => setProfileOpen(true)}
+                <Toolbar disableGutters={true}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            width: "100%",
+                            py: 1,
+                            px: { md: 2, lg: 12, xl: 12, xs: 2 },
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                        }}
+                    >
+                        {/* Logo & Desktop Menu */}
+                        <Stack direction="row" alignItems="center">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: scrolling ? 1 : 0 }}
+                                transition={{ duration: 0.3 }}
                             >
-                                <AccountCircle sx={{ fontSize: "30px" }} />
-                            </IconButton>
-                        ) : (
-                            <Button component={Link} to="/login">Login</Button>
-                        )}
+                                <Logo />
+                            </motion.div>
 
-                        {/* Mobile Menu Toggle */}
-                        <Chip
-                            sx={{
-                                pl: 1,
-                                pt: 0.5,
-                                display: { md: "none", xs: "block" },
-                                cursor: "pointer",
-                                background: "#fff",
-                            }}
-                            onClick={() => setMenuOpen((prev) => !prev)}
-                            icon={
-                                menuOpen ? (
-                                    <CloseIcon sx={{ color: "#FFF" }} />
-                                ) : (
-                                    <MenuIcon sx={{ color: "#FF8080" }} />
-                                )
-                            }
-                            variant="outlined"
-                        />
-                    </Stack>
-                </Box>
-            </Toolbar>
+                            {/* Desktop Navigation */}
+                            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                                {menuData.map((menuItem, index) => (
+                                    <DropdownMenu key={index} items={[menuItem]} />
+                                ))}
+                            </Box>
+                        </Stack>
 
-            {/* Mobile Menu Drawer */}
-            <MobileMenu menuOpen={menuOpen} handleDrawerToggle={() => setMenuOpen(false)} />
+                        {/* Profile & Mobile Menu Toggle */}
+                        <Stack direction="row" alignItems="center">
+                            {isLoggedIn ? (
+                                <IconButton
+                                    sx={{ cursor: "pointer", color: "#dfdfdf" }}
+                                    onClick={() => setProfileOpen(true)}
+                                >
+                                    <AccountCircle sx={{ fontSize: "30px" }} />
+                                </IconButton>
+                            ) : (
+                                <Button component={Link} to="/login">Login</Button>
+                            )}
 
-            {/* Profile Menu Drawer */}
-            <ProfileMenu
-                profileOpen={profileOpen}
-                closeProfileMenu={() => setProfileOpen(false)}
-                handleLogout={handleLogout}
-            />
-        </AppBar>
+                            {/* Mobile Menu Toggle */}
+                            <Chip
+                                sx={{
+                                    pl: 1,
+                                    pt: 0.5,
+                                    display: { md: "none", xs: "block" },
+                                    cursor: "pointer",
+                                    background: "#fff",
+                                }}
+                                onClick={() => setMenuOpen((prev) => !prev)}
+                                icon={
+                                    menuOpen ? (
+                                        <CloseIcon sx={{ color: "#FFF" }} />
+                                    ) : (
+                                        <MenuIcon sx={{ color: "#FF8080" }} />
+                                    )
+                                }
+                                variant="outlined"
+                            />
+                        </Stack>
+                    </Box>
+                </Toolbar>
+
+                {/* Mobile Menu Drawer */}
+                <MobileMenu menuOpen={menuOpen} handleDrawerToggle={() => setMenuOpen(false)} />
+
+                {/* Profile Menu Drawer */}
+                <ProfileMenu
+                    profileOpen={profileOpen}
+                    closeProfileMenu={() => setProfileOpen(false)}
+                    handleLogout={handleLogout}
+                />
+            </AppBar>
+        </>
+
+
     );
 };
 

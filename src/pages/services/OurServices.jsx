@@ -24,7 +24,7 @@ const OurServices = () => {
                 sx={{
                     position: "relative",
                     py: 6,
-                    px: { md: 15, xs: 1 },
+                    px: { md: 10, xs: 1 },
                     background: palette.info.main,
                     "::before": {
                         content: '""',
@@ -38,7 +38,7 @@ const OurServices = () => {
                     },
                 }}
             >
-                <Stack sx={{ position: "relative", zIndex: 2 }}>
+                <Stack sx={{ position: "relative", pl: 3, zIndex: 2 }}>
                     <Typography
                         variant="h3"
                         fontWeight="bold"

@@ -50,7 +50,7 @@ const ParaEffect = () => {
             sx={{
                 position: "relative",
                 backgroundImage: `url(${Ab1})`,
-                height: { md: "70vh", xs: '100%' },
+                height: { md: "70vh", lg: '70vh', xs: '100%' },
                 width: "100%",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -62,12 +62,11 @@ const ParaEffect = () => {
             <Box
                 sx={{
                     height: "100%",
-                    py: 5,
                     width: "100%",
                     background: "rgba(0,0,0,0.5)",
                 }}
             >
-                <Typography sx={{ px: { md: 12, xs: 2 } }} variant="h3" fontWeight="bold" color="info.main">
+                <Typography sx={{ py: { md: 5, xs: 2 }, px: { md: 12, xs: 2 } }} variant="h3" fontWeight="bold" color="info.main">
                     Want to know more about us?
                     <Divider
                         sx={{
@@ -77,7 +76,6 @@ const ParaEffect = () => {
                         }}
                     />
                 </Typography>
-
                 <Grid
                     container
                     spacing={3}

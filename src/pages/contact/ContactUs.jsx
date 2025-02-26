@@ -90,7 +90,7 @@ const ContactUs = () => {
                 containerStyles={{ overflow: 'hidden' }}
                 text="Contact Us"
             />
-            <Box sx={{ px: { lg: spacing(8), md: spacing(8), xs: spacing(1) }, background: palette.info.main }}>
+            <Box sx={{ px: { lg: spacing(12), md: spacing(12), sm: spacing(2), xs: spacing(2) }, background: palette.info.main }}>
                 <Box sx={{ my: 2 }}><GoogleMap /></Box>
                 <Box>
                     <Grid container spacing={2} justifyContent="space-between">
@@ -144,7 +144,7 @@ const ContactUs = () => {
                                             size="small"
                                             placeholder="Enter Your Message..."
                                             multiline
-                                            rows={3}
+                                            rows={2}
                                             {...formik.getFieldProps('message')}
                                             error={formik.touched.message && Boolean(formik.errors.message)}
                                             helperText={formik.touched.message && formik.errors.message}

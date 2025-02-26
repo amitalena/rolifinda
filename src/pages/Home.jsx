@@ -10,6 +10,7 @@ import OurTestimonial from "./testimonial/OurTestimonial"
 import ParaEffect from "./services/ParaEffect"
 import WhyChooseUsN from "./chooseus/WhyChooseUsN"
 import OurProcess from "./ourprocess/OurProcess"
+import OurFeature from "./feature/OurFeature"
 
 const Home = () => {
     return (
@@ -21,8 +22,9 @@ const Home = () => {
             <ElectricPage />
             <WhyChooseUsN />
             {/* <WhyChooseUs /> */}
-            <ParaEffect />
             <OurServices />
+            <OurFeature />
+            <ParaEffect />
             <OurProcess />
             <LatestBlog />
             <OurTestimonial />

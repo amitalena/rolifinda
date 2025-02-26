@@ -9,7 +9,7 @@ const ViewComponent = ({ blog }) => {
 
     return (
         <>
-            <Box sx={{ mt: { lg: spacing(12), xs: 0 }, mb: 2, px: { lg: 8, md: 2, xs: 1 } }}>
+            <Box sx={{ mt: { lg: spacing(11), xs: 0 }, mb: 2, px: { lg: 12, md: 2, sm: 2, xs: 2 } }}>
                 <Toolbar />
                 <Box sx={{ p: 1, my: 2, background: palette.info.main }}>
                     <motion.div
@@ -18,8 +18,8 @@ const ViewComponent = ({ blog }) => {
                         transition={{ duration: 0.6 }}
                         style={{ flexShrink: 0 }}
                     >
-                        <Breadcrumbs separator={<KeyboardDoubleArrowRight sx={{ color: '#b71c1c' }} />} aria-label="breadcrumb">
-                            <Link style={{ fontWeight: 'bold', textDecoration: 'none', color: '#b71c1c' }} to="/">Home</Link>
+                        <Breadcrumbs separator={<KeyboardDoubleArrowRight sx={{ color: palette.primary.main }} />} aria-label="breadcrumb">
+                            <Link style={{ fontWeight: 'bold', textDecoration: 'none', color: palette.primary.main }} to="/">Home</Link>
                             <Typography variant="body1" sx={{ fontWeight: 'bold', color: palette.info.deep }}>
                                 {blog.title}
                             </Typography>
@@ -45,7 +45,7 @@ const ViewComponent = ({ blog }) => {
                     {/* content side */}
                     <Grid item xs={12} lg={5}>
                         <Stack spacing={2}>
-                            <Typography variant="h4" fontWeight="bold">
+                            <Typography variant="h4" color="primary.main" fontWeight="bold">
                                 {blog.title}
                             </Typography>
                             <Typography variant="body2">{blog.description}</Typography>

@@ -21,7 +21,7 @@ const BlogCard = React.memo(({ blog, handleClick }) => {
             <Box
                 sx={{
                     m: 2,
-                    width: { md: "92%", xs: "100vw" },
+                    width: { md: "90%", xs: "100vw" },
                     height: { xs: "200px", sm: "250px", md: "250px" },
                     position: "relative",
                     overflow: "hidden",
@@ -72,13 +72,13 @@ const BlogCard = React.memo(({ blog, handleClick }) => {
             </Box>
 
             {/* Author & Comments */}
-            <Box sx={{ px: 3, position: "relative", bottom: 50 }}>
+            <Box sx={{ px: 3, position: "relative", bottom: 0 }}>
                 <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
-                    <Typography display="flex" alignItems="center" sx={{ color: "#fefefe" }} variant="body2">
+                    <Typography display="flex" alignItems="center" sx={{ color: "#9e9e9e" }} variant="body2">
                         <AccountCircle sx={{ mr: 1 }} /> {blog.createdBy}
                     </Typography>
-                    <Badge color="primary" badgeContent={blog.comments} showZero>
-                        <Message sx={{ color: "#fdfdfd" }} />
+                    <Badge color="primary" badgeContent={blog.comments} >
+                        <Message sx={{ mr: 0, color: "#9e9e9e" }} />
                     </Badge>
                 </Stack>
             </Box>

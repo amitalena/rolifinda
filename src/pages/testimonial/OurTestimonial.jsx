@@ -1,10 +1,11 @@
-import { Box, Card, Stack, Typography } from "@mui/material";
+import { Box, Card, Stack, Typography, useTheme } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { testiData } from "./testData";
 import { FormatQuoteRounded, Star, StarHalfSharp } from "@mui/icons-material";
 // import Testi from '../../assets/images/banners/testimonial.webp'
 const OurTestimonial = () => {
+    const theme = useTheme();
     return (
         <Box sx={{
             backdropFilter: 'blur(20px)',
@@ -12,7 +13,7 @@ const OurTestimonial = () => {
             py: 3,
             px: { md: 2, lg: 12, xl: 12, xs: 2 },
             // background: `url(${Testi}) center/cover no-repeat`,
-            background: '#f1f2f9',
+            background: 'rgba(205, 109, 20, 0.85)',
             transition: 'background 0.3s ease',
 
         }}>
@@ -32,7 +33,7 @@ const OurTestimonial = () => {
                     arrows: true,
                     pagination: false,
                     pauseOnHover: false,
-                    perPage: 3,
+                    perPage: 4,
                     breakpoints: {
                         1980: { perPage: 3 }, // xxl
                         1368: { perPage: 3 }, // xl
@@ -46,7 +47,7 @@ const OurTestimonial = () => {
 
                 {testiData.map((item) => (
                     <SplideSlide key={item.id} style={{ display: "flex", justifyContent: "center" }}>
-                        <Card elevation={0} sx={{ zIndex: 1, background: 'rgba(0, 0, 0, 0.1)', m: 1, p: 4 }}>
+                        <Card elevation={0} sx={{ zIndex: 1, border: "1px dashed #000", background: theme.palette.info.light, m: 1, p: 4 }}>
                             <Typography variant="body2"><FormatQuoteRounded sx={{ color: '#f05' }} />{item.description}<FormatQuoteRounded sx={{ color: '#f05' }} /></Typography>
                             <Stack spacing={1} justifyContent={'space-between'} mt={1} direction={'row'}>
                                 <Stack direction={'column'}>

@@ -21,7 +21,7 @@ const BlogComponent = ({ blog, latestBlogs }) => {
     return (
         <>
 
-            <Box sx={{ background: '#F0F2F9', pb: 2, mt: { lg: spacing(15), xs: 0 }, px: { md: 2, lg: 12, xl: 12, xs: 2 } }}>
+            <Box sx={{ background: '#F0F2F9', pb: 2, mt: { lg: spacing(15), xs: 0 }, px: { md: 2, lg: 12, xl: 12, sm: 2, xs: 2 } }}>
                 <Toolbar />
                 <Grid container spacing={3}>
                     {/* Main Blog */}
