@@ -22,8 +22,8 @@ const LatestBlog = () => {
                 Latest Blog
             </Typography>
             <Grid container spacing={2}>
-                {blogData.slice(0, 3).map((blog) => (
-                    <Grid key={blog.id} item xs={12} sm={6} md={4} lg={4} xl={3}>
+                {blogData.slice(0, 4).map((blog) => (
+                    <Grid key={blog.id} item xs={12} sm={6} md={6} lg={4} xl={3}>
                         <BlogCard blog={blog} handleClick={handleClick} />
                     </Grid>
                 ))}

@@ -17,7 +17,7 @@ const TeamCard = ({ member }) => {
         <Card
             sx={{
                 width: '100%',
-                height: '300px',
+                height: 'auto',
                 textAlign: "center",
                 position: "relative",
                 overflow: "hidden",

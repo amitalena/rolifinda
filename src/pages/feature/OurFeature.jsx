@@ -27,7 +27,7 @@ const OurFeature = () => {
             </Typography>
 
             <Grid container spacing={2}>
-                <Grid item xs={12} lg={4}>
+                <Grid item xs={12} md={12} lg={12} xl={4}>
                     <Box sx={{ height: 500, width: "100%", position: "relative", overflow: "hidden", borderRadius: 2 }}>
                         <Box sx={{ position: "absolute", height: "90%", width: "90%", background: theme.palette.primary.main, bottom: 1, left: 50, zIndex: 1, borderRadius: 2 }} />
                         <Box sx={{ position: "absolute", height: "85%", width: "88%", border: '2px solid #000', bottom: 50, left: 30, zIndex: 1, borderRadius: 2 }} />
@@ -37,11 +37,11 @@ const OurFeature = () => {
                     </Box>
                 </Grid>
 
-                <Grid item xs={12} lg={8}>
+                <Grid item xs={12} md={12} lg={12} xl={8}>
                     <Grid container spacing={2}>
                         {featureData.map(({ name, icon: Icon, description }, index) => (
                             <Grid item xs={12} md={6} key={index}>
-                                <Box sx={{ p: 3, border: "1px solid #eee", height: "auto" }}>
+                                <Box sx={{ p: 1, border: "1px solid #eee", height: "auto" }}>
                                     <Stack direction="row" spacing={2} alignItems="center">
                                         <Icon sx={{ fontSize: 70, color: theme.palette.primary.main }} />
                                         <Stack spacing={1}>

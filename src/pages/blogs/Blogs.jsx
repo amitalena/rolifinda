@@ -31,7 +31,7 @@ const Blogs = () => {
             <Banner
                 title="Blogs"
                 image={Ab1}
-                height="50vh"
+                height="45vh"
                 titleVariant="h2"
                 overlayColor="rgba(30,57,81,0.7)"
                 spacingConfig={{ lg: 8, md: 2, xs: 1 }}
@@ -41,8 +41,8 @@ const Blogs = () => {
 
             <Box sx={{ background: "#F1F2F9", py: 2, px: { md: 2, lg: 12, xl: 12, xs: 2 } }}>
                 <Grid container spacing={2}>
-                    {paginatedData.slice(0, 4).map((blog) => (
-                        <Grid key={blog.id} item xs={12} sm={6} md={4} lg={3} xl={3}>
+                    {paginatedData.slice(0, 6).map((blog) => (
+                        <Grid key={blog.id} item xs={12} sm={6} md={6} lg={4}>
                             <BlogCard blog={blog} handleClick={handleClick} />
                         </Grid>
                     ))}

@@ -1,19 +1,53 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { AccountCircle, Message } from "@mui/icons-material";
 import { Box, Card, CardContent, Divider, Stack, Typography, Button, Badge, useTheme } from "@mui/material";
-import { motion } from "framer-motion";
+import gsap from "gsap";
 import { format, parseISO, isValid } from "date-fns";
 
 const BlogCard = React.memo(({ blog, handleClick }) => {
     const theme = useTheme();
+    const imageRef = useRef(null);
+    const overlayRef = useRef(null);
+    const cardRef = useRef(null);
+    const textRef = useRef(null);
+    useEffect(() => {
+        // GSAP Hover Animation
+        const hoverIn = () => {
+            gsap.to(imageRef.current, { scale: 1.1, duration: 0.4, ease: "power2.out" });
+            gsap.to(overlayRef.current, { opacity: 1, duration: 0.4, ease: "power2.out" });
+            gsap.to(cardRef.current, { backgroundColor: "rgba(255, 255, 255, 0.89)", duration: 0.4, ease: "power2.out" });
+            gsap.to(textRef.current, { color: "#000", duration: 0.4, ease: "power2.out" });
+        };
+
+        const hoverOut = () => {
+            gsap.to(imageRef.current, { scale: 1, duration: 0.4, ease: "power2.out" });
+            gsap.to(overlayRef.current, { opacity: 0, duration: 0.4, ease: "power2.out" });
+            gsap.to(cardRef.current, { backgroundColor: "#fdfdfd", duration: 0.4, ease: "power2.out" });
+            gsap.to(textRef.current, { color: "black", duration: 0.4, ease: "power2.out" });
+        };
+
+        const cardElement = cardRef.current;
+        if (cardElement) {
+            cardElement.addEventListener("mouseenter", hoverIn);
+            cardElement.addEventListener("mouseleave", hoverOut);
+        }
+
+        return () => {
+            if (cardElement) {
+                cardElement.removeEventListener("mouseenter", hoverIn);
+                cardElement.removeEventListener("mouseleave", hoverOut);
+            }
+        };
+    }, []);
     const formattedDate = isValid(parseISO(blog.createDate))
         ? format(parseISO(blog.createDate), "MMM dd, yyyy")
         : "Invalid Date";
 
     return (
         <Card
+            ref={cardRef}
             elevation={0}
             sx={{ background: theme.palette.info.light, height: "100%", overflow: "hidden", position: "relative" }}
         >
@@ -21,27 +55,25 @@ const BlogCard = React.memo(({ blog, handleClick }) => {
             <Box
                 sx={{
                     m: 2,
-                    width: { md: "90%", xs: "100vw" },
                     height: { xs: "200px", sm: "250px", md: "250px" },
                     position: "relative",
                     overflow: "hidden",
                 }}
             >
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                <div
+                    ref={imageRef}
                     onClick={() => handleClick(blog.id)}
                     style={{
-                        height: "250px",
+                        height: "100%",
                         width: "100%",
                         background: `url(${blog.imagePath})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        position: "relative",
+                        transition: "transform 0.3, ease-out"
                     }}
                 >
-                    <motion.div
-                        whileHover={{ background: "rgba(0,0,0,0.5)" }}
+                    <div
+                        ref={overlayRef}
                         style={{
                             position: "absolute",
                             top: 0,
@@ -49,10 +81,11 @@ const BlogCard = React.memo(({ blog, handleClick }) => {
                             width: "100%",
                             height: "100%",
                             background: "rgba(0,0,0,0.3)",
-                            transition: "background 0.3s ease",
+                            opacity: 0,
+                            transition: "opacity 0.3s ease-out",
                         }}
                     />
-                </motion.div>
+                </div>
             </Box>
 
             {/* Date Badge */}
@@ -85,16 +118,16 @@ const BlogCard = React.memo(({ blog, handleClick }) => {
 
             {/* Blog Content */}
             <CardContent>
-                <Typography onClick={() => handleClick(blog.id)} variant="h6" fontWeight="bold">
+                <Typography ref={textRef} onClick={() => handleClick(blog.id)} variant="h6" fontWeight="bold">
                     {blog.title}
                 </Typography>
                 <Divider sx={{ my: 1 }} />
-                <Typography variant="body2" color="text.secondary">
+                <Typography ref={textRef} variant="body2" color="text.secondary">
                     {blog.description.length > 100
                         ? `${blog.description.substring(0, 100)}...`
                         : blog.description}
                 </Typography>
-                <Button variant="outlined" sx={{ mt: 2 }} onClick={() => handleClick(blog.id)}>
+                <Button ref={textRef} variant="outlined" sx={{ mt: 2 }} onClick={() => handleClick(blog.id)}>
                     Read More
                 </Button>
             </CardContent>

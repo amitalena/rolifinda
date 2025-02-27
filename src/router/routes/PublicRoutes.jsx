@@ -1,18 +1,20 @@
-import { Outlet } from "react-router-dom"
-import Footer from '../../components/Footer';
+import { Outlet, useLocation } from "react-router-dom";
+import Footer from "../../components/Footer";
 import { Toolbar } from "@mui/material";
-import NewAppBar from "../../components/appbar/NewAppBar";
-
+import PublicAppBar from "../../components/PublicAppBar";
 
 const PublicRoutes = () => {
+    const location = useLocation();
+    const hideLayout = location.pathname === "/login";
+
     return (
         <>
-            <NewAppBar />
-            <Toolbar />
+            {!hideLayout && <PublicAppBar />}
+            {!hideLayout && <Toolbar />}
             <Outlet />
-            <Footer />
+            {!hideLayout && <Footer />}
         </>
-    )
-}
+    );
+};
 
-export default PublicRoutes
+export default PublicRoutes;

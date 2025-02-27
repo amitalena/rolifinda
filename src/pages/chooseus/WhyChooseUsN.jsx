@@ -62,20 +62,20 @@ const WhyChooseUsN = () => {
     ];
 
     return (
-        <Box sx={{ background: '#fff', px: { lg: 20, md: 2, xs: 2 }, py: 8 }}>
-            <Grid container spacing={4}>
+        <Box sx={{ background: '#fff', px: { lg: 12, md: 2, xs: 2 }, py: 8 }}>
+            <Grid container justifyContent={'space-between'} spacing={4}>
                 {/* Image Section */}
-                <Grid item xs={12} lg={5}>
+                <Grid item xs={12} lg={5} xl={4}>
                     <Box sx={{ position: "relative", height: "400px" }}>
                         {[
                             { src: F1, alt: "Interior", top: 0, left: 0 },
-                            { src: T1, alt: "Tiles", top: { md: 70, xs: 30 }, left: { md: 70, xs: 30 } },
-                            { src: E1, alt: "Electric", top: { md: 140, xs: 70 }, left: { md: 140, xs: 70 } },
+                            { src: T1, alt: "Tiles", top: { md: 50, xs: 30 }, left: { lg: 70, md: 70, xs: 30 } },
+                            { src: E1, alt: "Electric", top: { md: 100, xs: 70 }, left: { lg: 140, md: 120, xs: 70 } },
                         ].map((image, index) => (
                             <Box
                                 key={index}
                                 sx={{
-                                    position: "absolute", top: image.top, left: image.left, height: { md: "400px", xs: '100%' }, width: { md: "350px", xs: "75%" },
+                                    position: "absolute", top: image.top, left: image.left, height: { lg: '350px', md: "350px", xs: '350px' }, width: { xl: '80%', lg: '60%', md: "70%", xs: "80%" },
                                     transition: "opacity 0.3s, transform 0.3s", opacity: 1, zIndex: 1,
                                     "&:hover": { opacity: 1, zIndex: 20, },
                                 }}
@@ -88,8 +88,8 @@ const WhyChooseUsN = () => {
 
 
                 {/* Content Section */}
-                <Grid item xs={12} lg={7}>
-                    <Stack spacing={2} sx={{ mt: { md: 0, xs: 20 } }} >
+                <Grid item xs={12} lg={7} xl={7}>
+                    <Stack spacing={2} sx={{ mt: { xs: 10, sm: 10, md: 10, lg: 0, xl: 0 } }} >
                         <Typography variant='h4' fontWeight='bold'>
                             Why You Should Choose Us?
                         </Typography>
@@ -103,7 +103,7 @@ const WhyChooseUsN = () => {
                         {/* Why Choose Us Grid */}
                         <Grid container spacing={2} sx={{ mt: 1 }}>
                             {chooseUsData.map((item, index) => (
-                                <Grid item xs={12} lg={6} key={index}>
+                                <Grid item xs={12} lg={12} sm={6} md={6} key={index}>
                                     <Stack direction='row' spacing={2} alignItems='center'>
                                         <HoverEffect><IconButton color='primary'>{item.icon}</IconButton></HoverEffect>
                                         <Box sx={{ px: 2, }}>

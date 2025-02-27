@@ -18,15 +18,16 @@ const FurnitureComponent = ({ data = [], title, onClick }) => {
     // Memoized styles for performance optimization
     const containerStyles = useMemo(() => ({
         background: "#f1f1f1",
-        width: { xl: "88vw", md: "96vw", xs: "110vw" },
-        px: { lg: theme.spacing(10), md: theme.spacing(4), sm: theme.spacing(2), xs: theme.spacing(2) },
+        width: { xl: "98.9vw", lg: "100vw", md: "98.9vw", sm: '98.9vw', xs: "100vw" },
+        px: { lg: theme.spacing(11), md: theme.spacing(1), sm: theme.spacing(2), xs: theme.spacing(2) },
         py: { md: 5, lg: 5, sm: 3, xs: 1 },
     }), [theme]);
 
-    const titleStyles = useMemo(() => ({
+    const furnitureStyles = useMemo(() => ({
         variant: "h4",
         fontWeight: "bold",
         py: 2,
+        pl: 1,
         fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2rem" }, // Responsive font size
     }), []);
 
@@ -46,8 +47,8 @@ const FurnitureComponent = ({ data = [], title, onClick }) => {
         <Box sx={containerStyles}>
             {/* Header */}
             <Box>
-                <Typography {...titleStyles}>{title}</Typography>
-                <Divider sx={{ background: theme.palette.primary.deep, height: '3px', width: '180px' }} />
+                <Typography {...furnitureStyles}>{title}</Typography>
+                <Divider sx={{ background: theme.palette.primary.deep, ml: 1, height: '3px', width: '180px' }} />
             </Box>
 
             {/* Splide Slider */}

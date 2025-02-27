@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Box, Button, Card, CardContent, Divider, Grid, Stack, TextField, Typography, Toolbar, IconButton } from '@mui/material';
+import { Box, Button, Card, CardContent, Divider, Grid, Stack, TextField, Typography, IconButton } from '@mui/material';
 import { useTheme } from '@emotion/react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -60,17 +60,17 @@ const ContactUs = () => {
     }
     const contactCards = [
         {
-            icon: <Map sx={{ color: '#fff', backgroundColor: palette.error.main, p: 2, borderRadius: '50%', height: '40px', width: '40px' }} />,
+            icon: <Map sx={{ color: '#fff', backgroundColor: palette.error.main, p: 1, borderRadius: '50%', height: '40px', width: '40px' }} />,
             title: 'Visit Us Anytime',
             details: ['A-82', 'Noida Sector 63'],
         },
         {
-            icon: <Drafts sx={{ color: '#fff', backgroundColor: palette.error.main, p: 2, borderRadius: '50%', height: '40px', width: '40px' }} />,
+            icon: <Drafts sx={{ color: '#fff', backgroundColor: palette.error.main, p: 1, borderRadius: '50%', height: '40px', width: '40px' }} />,
             title: 'Send an Email',
             details: ['support@example.com', 'abc@example.com'],
         },
         {
-            icon: <Headset sx={{ color: '#fff', backgroundColor: palette.error.main, p: 2, borderRadius: '50%', height: '40px', width: '40px' }} />,
+            icon: <Headset sx={{ color: '#fff', backgroundColor: palette.error.main, p: 1, borderRadius: '50%', height: '40px', width: '40px' }} />,
             title: 'Contact Us',
             details: ['+012 (345) 78967', '+9865322200'],
         },
@@ -78,19 +78,17 @@ const ContactUs = () => {
 
     return (
         <>
-            <Toolbar />
             <Banner
                 title="Contact Us"
                 image={C1}
-                height="50vh"
-                titleVariant="h1"
-                titleStyles={{ fontFamily: 'Poppins', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
+                height="45vh"
+                titleVariant="h2"
                 overlayColor="rgba(0,0,0,0.2)"
                 spacingConfig={{ lg: 8, md: 2, xs: 1 }}
                 containerStyles={{ overflow: 'hidden' }}
                 text="Contact Us"
             />
-            <Box sx={{ px: { lg: spacing(12), md: spacing(12), sm: spacing(2), xs: spacing(2) }, background: palette.info.main }}>
+            <Box sx={{ px: { lg: spacing(12), md: spacing(2), sm: spacing(2), xs: spacing(2) }, background: palette.info.main }}>
                 <Box sx={{ my: 2 }}><GoogleMap /></Box>
                 <Box>
                     <Grid container spacing={2} justifyContent="space-between">
@@ -98,7 +96,13 @@ const ContactUs = () => {
                             <Grid item xs={12} md={4} key={index}>
                                 <Card elevation={0} sx={{ background: '#FFFFFF' }}>
                                     <CardContent>
-                                        <Stack direction={'row'} spacing={2} alignItems="center" justifyContent="center">
+                                        <Stack
+                                            direction={{ xs: "column", sm: "column", md: "column", lg: 'column', xl: 'row' }}
+                                            spacing={2}
+                                            alignItems="center"
+                                            justifyContent="center"
+                                        >
+
                                             <Box
                                                 sx={hoverStyle1}
                                             >
@@ -120,12 +124,12 @@ const ContactUs = () => {
                     </Grid>
                 </Box>
                 <Grid container spacing={2} sx={{ py: spacing(2) }}>
-                    <Grid item lg={8} xs={12}>
-                        <Card elevation={0} sx={{ p: 4, background: '#FFFFFF', backdropFilter: 'blur(5px)' }}>
+                    <Grid item lg={7} xl={8} xs={12}>
+                        <Card elevation={0} sx={{ p: { lg: 4, xs: 2, }, background: '#FFFFFF', backdropFilter: 'blur(5px)' }}>
                             <CardContent component="form" onSubmit={formik.handleSubmit}>
                                 <Grid container spacing={3}>
                                     {['name', 'email', 'contact', 'message_title'].map((field, index) => (
-                                        <Grid item xs={12} md={index === 2 ? 6 : 6} key={field}>
+                                        <Grid item xs={12} md={index === 2 ? 6 : 6} sm={index === 2 ? 12 : 12} lg={index === 2 ? 12 : 12} xl={index === 2 ? 6 : 6} key={field}>
                                             <TextField
                                                 fullWidth
                                                 size="small"
@@ -160,11 +164,11 @@ const ContactUs = () => {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item lg={4} xs={12}>
+                    <Grid item lg={5} xl={4} xs={12}>
                         <Box sx={{ background: palette.info.light }}>
                             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
                                 <Stack direction={'column'} gap={spacing(3)}>
-                                    <Card elevation={0} sx={{ p: 4, background: '#FDFDFD', backdropFilter: 'blur(5px)' }}>
+                                    <Card elevation={0} sx={{ p: { lg: 4, xs: 2, }, background: '#FDFDFD', backdropFilter: 'blur(5px)' }}>
                                         <CardContent>
                                             <Typography variant="h3" fontWeight="bold">How Can We Help You?</Typography>
                                             <Typography variant="body1">
@@ -185,7 +189,7 @@ const ContactUs = () => {
                         </Box>
                     </Grid>
                 </Grid>
-            </Box>
+            </Box >
         </>
     );
 };

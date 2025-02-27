@@ -2,7 +2,6 @@ import { Toolbar } from "@mui/material"
 import Banner from "./banner/Banner"
 import TilesPage from "./tiles/TilesPage"
 import Furniture from "./furniture/Furniture"
-// import WhyChooseUs from "./chooseus/WhyChooseUs"
 import ElectricPage from "./electric/ElectricPage"
 import OurServices from "./services/OurServices"
 import LatestBlog from "./blogs/LatesBlog"
@@ -21,7 +20,6 @@ const Home = () => {
             <TilesPage />
             <ElectricPage />
             <WhyChooseUsN />
-            {/* <WhyChooseUs /> */}
             <OurServices />
             <OurFeature />
             <ParaEffect />

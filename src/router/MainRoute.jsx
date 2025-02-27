@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider, ScrollRestoration } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import PublicRoutes from './routes/PublicRoutes';
+import PrivateRoutes from "./routes/PrivateRoutes";
+import Login from "../pages/Login";
 // Lazy-loaded components
 const Home = lazy(() => import("../pages/Home"));
 const AboutUs = lazy(() => import("../pages/aboutus/AboutUs"));
@@ -23,7 +25,8 @@ const routes = [
     { path: "/singlefurniture/:id", element: <SingleFurniture /> },
     { path: "/singletiles/:id", element: <SingleTiles /> },
     { path: "/singleelectric/:id", element: <SingleElectric /> },
-    { path: "/singleblog/:id", element: <SingleBlogPage /> }
+    { path: "/singleblog/:id", element: <SingleBlogPage /> },
+    { path: "/login", element: <Login /> },
 ];
 
 // Create router
@@ -37,6 +40,13 @@ const routers = createBrowserRouter([
             </>
         ),
         children: routes
+    },
+    {
+        path: "/admin",
+        element: <PrivateRoutes />,
+        // children: [
+        //     { path: "/", element: <Dashboard /> }
+        // ]
     }
 ]);
 

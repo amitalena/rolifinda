@@ -24,32 +24,82 @@ const AppTheme = createTheme({
         background: {
             default: "hsl(0, 0%, 100%)",
         },
-        // primary: {
-        //     light: '#757ce8',
-        //     main: '#3f50b5',
-        //     dark: '#002884',
-        //     contrastText: '#fff',
+        // deep forest
+        // success: {
+        //     everest: '#18842A',
+        //     olive: '#45644A',
+        //     sand: '#E4DBC4',
+        //     white: '#F3EDE3',
+        //     contrastText: '#000',
         // },
-        secondary: {
-            light: '#ff7961',
-            main: '#f44336',
-            dark: '#ba000d',
-            contrastText: '#000',
-        },
+        // THE HURRICANES
+        // harricanes: {
+        //     carrot: '#E66C32',
+        //     pine: '#0E3F18',
+        //     hunter: '#385A42',
+        //     plaster: '#EFEEE6',
+        //     contrastText: '#000',
+        // },
+        // lavender moon
+        // levender: {
+        //     lavender: '#9985F3',
+        //     orchid: '#C7B7FC',
+        //     thistle: '#E2D3EF',
+        //     pearl: '#F4ECFE',
+        //     contrastText: '#000',
+        // },
+        // olive leaves
+        // olive: {
+        //     army: '#48513D',
+        //     olive: '#4F614E',
+        //     sage: '#79A085',
+        //     tea: '#CDEFDB',
+        //     contrastText: '#000',
+        // },
+        // clay mezzanine
+        // secondary: {
+        //     oxblood: '#622021',
+        //     crimson: '#991B20',
+        //     egypt: '#E1CAA5',
+        //     seafqam: '#FEF9DE',
+        //     contrastText: '#000',
+        // },
+        // romantic beige
+        // romantic: {
+        //     thulian: '#AC7681',
+        //     salmon: '#E18D92',
+        //     ochre: '#FFAB9A',
+        //     terracotta: '#FFC7AB'
+        // },
+        // // pacific coast
+        // pacific: {
+        //     denim: '#051C36',
+        //     pigeion: '#34617F',
+        //     independence: '#5F8FA5',
+        //     cream: '#E6DEAB'
+        // },
         primary: {
-            light: '#fff3e0',
+            light: '#FFF3e0',
             main: '#E96300',
             dark: '#ff6d00',
             deep: '#e65100',
-            contrastText: '#fff',
+            contrastText: '#FFF',
         },
+
         info: {
-            light: '#ffffff',
+            light: '#FFFFFF',
             main: '#e9e9e9',
             dark: '#616161',
             deep: '#000',
-            contrastText: '#fff',
+            contrastText: '#FFF',
         },
+        // error: {
+        //     burgundy: '#75000c',
+        //     chili: '#8D261F',
+        //     flax: '#D4CFAE',
+        //     mushroom: '#F0E5C1',
+        //     contrastText: '#FFFFFF',
+        // },
     },
     shape: {
         borderRadius: 0
@@ -59,13 +109,13 @@ const AppTheme = createTheme({
         fontSize: 25,
         htmlFontSize: 30,
         h1: {
-            fontWeight: 300,
+            fontWeight: 700,
             fontSize: "6rem",
             lineHeight: 1.167,
             letterSpacing: "-0.01562em"
         },
         h2: {
-            fontWeight: 300,
+            fontWeight: 600,
             fontSize: "3.75rem",
             lineHeight: 1.2,
             letterSpacing: "-0.00833em"
@@ -77,7 +127,7 @@ const AppTheme = createTheme({
             letterSpacing: "0em"
         },
         h4: {
-            fontWeight: 400,
+            fontWeight: 300,
             fontSize: "1.650rem",
             lineHeight: 1.235,
             letterSpacing: "0.00735em"
@@ -215,7 +265,7 @@ const AppTheme = createTheme({
         MuiTablePagination: {
             styleOverrides: {
                 root: {
-                    background: '#fff',
+                    background: '#FFF',
                 },
             },
         },

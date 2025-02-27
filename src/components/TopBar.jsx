@@ -1,5 +1,5 @@
-import { Call, Public, Search, } from "@mui/icons-material";
-import { Box, IconButton, OutlinedInput, Stack, Typography, useTheme } from "@mui/material";
+import { MailOutline, PhoneAndroidOutlined, Search, } from "@mui/icons-material";
+import { Box, Divider, IconButton, OutlinedInput, Stack, Typography, useTheme } from "@mui/material";
 import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import Rolif_img from '../assets/images/logo/rolif.png';
@@ -46,52 +46,60 @@ const TopBar = () => {
         >
             <Box
                 sx={{
-                    px: { md: 2, lg: 6, xl: 6, xs: 2 },
+                    px: { md: 2, lg: 12, xl: 12, xs: 1 },
                     py: 1,
-                    display: { md: 'block', xs: 'none' },
+                    display: { lg: 'block', md: 'none', sm: 'none', xs: 'none' },
                     background: '#FFF',
                     color: '#333'
                 }}
                 style={hoverStyle}
             >
-                <Stack sx={{ flexDirection: { md: 'row', xs: 'column' }, alignItems: 'center', justifyContent: { md: 'space-between', xs: 'center' } }} >
+                <Stack
+                    sx={{
+                        flexDirection: { md: 'row', xs: 'column' },
+                        alignItems: 'center',
+                        gap: 2,
+                        justifyContent: { md: 'space-between', xs: 'center' }
+                    }}
+                >
                     {/* Contact Info */}
-                    <Box sx={{ display: "flex", gap: 1, alignItems: "center", color: palette.primary.main }}>
+                    <Box sx={{ display: "flex", justifyContent: 'center', alignItems: "center", color: palette.primary.main }}>
                         <Logo />
                     </Box>
-
-                    {/* Pay Now Link */}
+                    {/* search bar */}
                     <Stack spacing={1} direction={'row'} sx={{ alignItems: 'center', display: { md: 'flex', xs: 'block' }, }}>
                         <OutlinedInput fullWidth type="search" size="small"
                             sx={{
-                                width: { xs: '100%', md: '50vw' },
+                                width: '100%',
                                 color: '#000',
                                 border: '1px solid #939393',
                                 backgroundColor: '#FFFFFF',
-                                borderRadius: '50px'
+                                borderRadius: '1px'
                             }}
                             endAdornment={
-                                <IconButton sx={hoverStyle}><Search fontSize="small" /></IconButton>
+                                <IconButton variant="none" sx={{ background: palette.primary.main, }}><Search fontSize="small" /></IconButton>
                             }
                             placeholder="Search Package" />
-                        {/* select language */}
-                        <Stack spacing={1} direction={'row'} sx={{ alignItems: 'center', display: 'flex', }}>
-
+                    </Stack>
+                    <Box
+                        sx={{ display: { md: 'flex', xs: 'flex' }, alignItems: 'center', justifyContent: { md: 'center', xs: 'center' }, gap: 2, flexDirection: { md: 'row', xs: 'column' } }}
+                    >
+                        <Stack direction="row" spacing={1} alignItems={'center'}>
+                            <MailOutline sx={{ fontSize: '40px', color: '#9e9e9e' }} />
+                            <Box>
+                                <Typography variant="body2">Email Us</Typography>
+                                <Typography variant="body2">rolif12@gmail.com</Typography>
+                            </Box>
+                            <Divider sx={{ background: '#e9e9e9', height: '50px', width: '0px', display: { md: 'block', xs: 'none' } }} orientation='vertical' />
                         </Stack>
-                    </Stack>
-                    <Stack direction="row" spacing={1} alignItems={'center'}>
-                        <Call sx={{ fontSize: '40px' }} />
-                        <Box>
-                            <Typography>24 support</Typography>
-                            <Typography>+91-0123456789</Typography>
-                        </Box>
-                    </Stack>
-                    <Stack direction="row" spacing={1} alignItems={'center'}>
-                        <Public sx={{ fontSize: '40px' }} />
-                        <Box>
-                            <Typography>All Over India</Typography>
-                        </Box>
-                    </Stack>
+                        <Stack direction="row" spacing={1} alignItems={'center'}>
+                            <PhoneAndroidOutlined sx={{ fontSize: '40px', color: '#9e9e9e' }} />
+                            <Box>
+                                <Typography variant="body2">CALL US NOW FOR</Typography>
+                                <Typography variant="h6" fontWeight={'bold'}>+91-0123456789</Typography>
+                            </Box>
+                        </Stack>
+                    </Box>
                 </Stack>
 
             </Box >

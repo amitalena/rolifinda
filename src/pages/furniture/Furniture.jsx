@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { furnitureData } from "./furnitureData";
 import FurnitureComponent from "../../utils/FurnitureComponent";
 
-const Furniture = () => {
+const FurniturePage = () => {
     const navigate = useNavigate();
 
     const handleFurniturePageClick = (id) => {
@@ -25,4 +25,4 @@ const Furniture = () => {
     );
 };
 
-export default Furniture;
+export default FurniturePage;

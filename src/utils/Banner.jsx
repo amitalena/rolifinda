@@ -53,7 +53,7 @@ const Banner = ({ title, image, height, titleVariant = {}, text, overlayColor, s
                     spacing={2}
                     direction="column"
                     sx={{
-                        mt: 10,
+                        mt: { md: 10, xs: 5, lg: 10, sm: 5 },
                         width: '100%',
                         alignItems: 'center',
                         justifyContent: 'center',

@@ -9,7 +9,7 @@ const ViewComponent = ({ blog }) => {
 
     return (
         <>
-            <Box sx={{ mt: { lg: spacing(11), xs: 0 }, mb: 2, px: { lg: 12, md: 2, sm: 2, xs: 2 } }}>
+            <Box sx={{ mt: { xl: spacing(11), lg: spacing(11), md: spacing(2), sm: spacing(2), xs: spacing(1) }, mb: 2, px: { lg: 12, md: 2, sm: 2, xs: 2 } }}>
                 <Toolbar />
                 <Box sx={{ p: 1, my: 2, background: palette.info.main }}>
                     <motion.div
@@ -30,12 +30,9 @@ const ViewComponent = ({ blog }) => {
                     {/* Main view */}
                     <Grid item xs={12} lg={7}>
                         <Stack spacing={2}>
-                            <Card elevation={0} sx={{ height: "70vh", width: "100%", overflow: "hidden", }}>
-                                <CardMedia
-                                    component="img"
-                                    image={blog.imagePath}
-                                    alt="Main Blog Image"
-                                    sx={{ height: "100%", width: "100%", objectFit: "cover" }}
+                            <Card elevation={0} sx={{ height: "auto", overflow: "hidden" }}>
+                                <CardMedia component="img" image={blog.imagePath} alt="Main Blog Image"
+                                    sx={{ height: "60vh", width: "100%" }}
                                 />
                             </Card>
 

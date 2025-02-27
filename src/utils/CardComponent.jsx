@@ -47,7 +47,7 @@ const CardComponent = ({ id, imagePath, title, onClick }) => {
             sx={{
                 width: '100%',
                 background: "#fdfdfd",
-                m: { md: 1, xs: 0, sm: 0 },
+                m: { md: 1, xl: 1, xs: 0, sm: 0 },
                 my: 1,
                 textAlign: "center",
                 cursor: "pointer",
@@ -60,8 +60,7 @@ const CardComponent = ({ id, imagePath, title, onClick }) => {
             <Box
                 sx={{
                     m: 2,
-                    width: { md: "290px", xs: "98vw" },
-                    height: { xs: "200px", sm: "250px", md: "250px" },
+                    height: { xs: "250px", sm: "250px", md: "250px", lg: '250px', xl: '250px' },
                     position: "relative",
                     overflow: "hidden",
                 }}

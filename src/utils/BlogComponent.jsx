@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { Box, Grid, Stack, Typography, useTheme, Card, CardMedia, Toolbar, CardContent } from "@mui/material";
+import { Box, Grid, Stack, Typography, useTheme, Card, CardMedia, Toolbar, CardContent, Breadcrumbs } from "@mui/material";
 import SingleBlogCard from "./SingleBlogCard";
-import { AccessTimeOutlined, MessageRounded } from "@mui/icons-material";
+import { AccessTimeOutlined, KeyboardDoubleArrowRight, MessageRounded } from "@mui/icons-material";
 import { format, parseISO, isValid } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 const BlogComponent = ({ blog, latestBlogs }) => {
     const { spacing, palette } = useTheme();
@@ -20,14 +21,27 @@ const BlogComponent = ({ blog, latestBlogs }) => {
     }
     return (
         <>
-
-            <Box sx={{ background: '#F0F2F9', pb: 2, mt: { lg: spacing(15), xs: 0 }, px: { md: 2, lg: 12, xl: 12, sm: 2, xs: 2 } }}>
+            <Box sx={{ background: '#f1f2f9', mt: { xl: spacing(11), lg: spacing(11), md: spacing(2), sm: spacing(2), xs: spacing(1) }, mb: 2, px: { lg: 12, md: 2, sm: 2, xs: 2 } }}>
                 <Toolbar />
+                <Box sx={{ p: 1, my: 2, background: palette.info.light }}>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6 }}
+                        style={{ flexShrink: 0 }}
+                    >
+                        <Breadcrumbs separator={<KeyboardDoubleArrowRight sx={{ color: palette.primary.main }} />} aria-label="breadcrumb">
+                            <Link style={{ fontWeight: 'bold', textDecoration: 'none', color: palette.primary.main }} to="/">Home</Link>
+                            <Typography variant="body1" sx={{ fontWeight: 'bold', color: palette.info.deep }}>
+                                {blog.title}
+                            </Typography>
+                        </Breadcrumbs>
+                    </motion.div>
+                </Box>
                 <Grid container spacing={3}>
                     {/* Main Blog */}
                     <Grid item xs={12} lg={8}>
-
-                        <Card elevation={0} sx={{ height: "auto", p: 5, overflow: "hidden" }}>
+                        <Card elevation={0} sx={{ height: "auto", p: { xs: 2, sm: 2, md: 2, lg: 3, xl: 5 }, overflow: "hidden" }}>
                             <CardMedia component="img" image={blog.imagePath} alt="Main Blog Image"
                                 sx={{ height: "60vh", width: "100%" }}
                             />

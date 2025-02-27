@@ -7,12 +7,12 @@ const OurTeam = () => {
     const theme = useTheme();
 
     return (
-        <Box sx={{ px: { xs: 2, md: 4, lg: 12 }, height: { md: '75vh', xs: '100%' }, textAlign: "center" }}>
+        <Box sx={{ px: { xs: 2, md: 0, lg: 12 }, height: { xl: '75vh', md: '85vh', sm: '100vh', xs: '240vh' }, textAlign: "center" }}>
             <Box sx={{
                 position: "relative",
                 py: 6,
                 mt: 2,
-                height: '35vh',
+                height: { lg: '50vh', xl: '45vh', sm: '45vh', md: '45vh' },
                 background: `url(${Team}) center/cover no-repeat`,
                 "::before": {
                     content: '""',
@@ -26,18 +26,18 @@ const OurTeam = () => {
                 },
             }}>
                 <Stack spacing={3}>
-                    <Typography variant="h4" fontWeight={'bold'} sx={{ fontSize: '50px', color: theme.palette.info.main, zIndex: 2, mb: 3, }}>
+                    <Typography variant="h4" fontWeight={'bold'} sx={{ fontSize: { xs: '40px', lg: '50px', xl: '50px' }, color: theme.palette.info.main, zIndex: 2, mb: 3, }}>
                         Our Professional Team
                     </Typography>
-                    <Typography variant="body2" sx={{ color: theme.palette.info.main, textAlignl: 'center', px: 40, zIndex: 2, mb: 3, fontWeight: "bold" }}>
+                    <Typography variant="body2" sx={{ color: theme.palette.info.main, textAlignl: 'center', px: { xl: 40, lg: 20, md: 10, sm: 5, xs: 5 }, zIndex: 2, my: 3, fontWeight: "bold" }}>
                         Pharetra ex. Etiam eget diam ligula. Sed at blandit ante. Vivamus feugiat,
                         lacus eu suscipit mattis, tortor mi aliquam leo, quis laoreet ante sem sed sapien</Typography>
                 </Stack>
 
-                <Box sx={{ position: 'absolute', zIndex: 3, py: 4, px: 10, top: '50%' }}>
+                <Box sx={{ position: 'absolute', zIndex: 3, py: 4, px: { lg: 5, xl: 10, md: 5, sm: 2, xs: 2 }, top: { md: '50%', sm: '80%', xs: '80%' } }}>
                     <Grid container spacing={2} justifyContent="center">
                         {teamData.map((member) => (
-                            <Grid key={member.id} item xs={12} sm={6} md={3}>
+                            <Grid key={member.id} item xs={12} md={3} xl={3} sm={3} lg={3}>
                                 <TeamCard member={member} />
                             </Grid>
                         ))}

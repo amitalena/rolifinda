@@ -50,7 +50,7 @@ const ParaEffect = () => {
             sx={{
                 position: "relative",
                 backgroundImage: `url(${Ab1})`,
-                height: { md: "70vh", lg: '70vh', xs: '100%' },
+                height: { xl: '70vh', lg: '100%', md: "100%", sm: '100%', xs: '100%' },
                 width: "100%",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -63,10 +63,10 @@ const ParaEffect = () => {
                 sx={{
                     height: "100%",
                     width: "100%",
-                    background: "rgba(0,0,0,0.5)",
+                    background: "rgba(0,0,0,0.7)",
                 }}
             >
-                <Typography sx={{ py: { md: 5, xs: 2 }, px: { md: 12, xs: 2 } }} variant="h3" fontWeight="bold" color="info.main">
+                <Typography sx={{ py: { xl: 3, lg: 3, md: 3, xs: 2 }, px: { md: 5, sm: 5, lg: 12, xs: 2 } }} variant="h3" fontWeight="bold" color="info.main">
                     Want to know more about us?
                     <Divider
                         sx={{
@@ -81,7 +81,7 @@ const ParaEffect = () => {
                     spacing={3}
                     justifyContent="space-between"
                     alignItems="center"
-                    sx={{ px: { md: 12, xs: 2 } }}
+                    sx={{ px: { md: 5, sm: 5, lg: 12, xs: 2 }, py: 2 }}
                 >
                     {/* Left Section */}
                     <Grid item xs={12} md={6} display="flex" justifyContent="center">

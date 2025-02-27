@@ -7,24 +7,25 @@ import E1 from '../../assets/images/electric/e6.webp';
 const OurServices = () => {
     const { spacing, palette } = useTheme();
 
-    // Animation variants
-    const slideLeft = {
-        hidden: { x: -100, opacity: 0 },
-        visible: { x: 0, opacity: 1, transition: { duration: 0.3 } }
-    };
+    // // Animation variants
+    // const slideLeft = {
+    //     hidden: { x: -100, opacity: 0 },
+    //     visible: { x: 0, opacity: 1, transition: { duration: 0.3 } }
+    // };
 
-    const slideRight = {
-        hidden: { x: 100, opacity: 0 },
-        visible: { x: 0, opacity: 1, transition: { duration: 0.3 } }
-    };
+    // const slideRight = {
+    //     hidden: { x: 100, opacity: 0 },
+    //     visible: { x: 0, opacity: 1, transition: { duration: 0.3 } }
+    // };
 
     return (
         <>
             <Box
                 sx={{
                     position: "relative",
-                    py: 6,
-                    px: { md: 10, xs: 1 },
+                    py: 2,
+                    overflow: 'hidden',
+                    px: { xl: 12, lg: 12, md: 2, sm: 2, xs: 2 },
                     background: palette.info.main,
                     "::before": {
                         content: '""',
@@ -38,7 +39,7 @@ const OurServices = () => {
                     },
                 }}
             >
-                <Stack sx={{ position: "relative", pl: 3, zIndex: 2 }}>
+                <Stack sx={{ position: "relative", zIndex: 2 }}>
                     <Typography
                         variant="h3"
                         fontWeight="bold"
@@ -49,9 +50,9 @@ const OurServices = () => {
                         <Divider sx={{ background: palette.primary.deep, height: '3px', width: '90px' }} />
                     </Typography>
                 </Stack>
-                <Grid container sx={{ alignItems: 'center', justifyContent: 'space-around', mt: 1, p: spacing(3) }}>
+                <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'space-around' }}>
                     {/* Grid 1 - Animate from left */}
-                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
+                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} >
                         <Typography variant='h4' color='primary' fontWeight={'bold'}>Residential Interior Design & Fit-Out</Typography>
                         <Box>
                             <Stack spacing={1} sx={{ pt: 3, pr: { md: spacing(10), xs: spacing(0) } }}>
@@ -64,15 +65,15 @@ const OurServices = () => {
                     </Grid>
 
                     {/* Grid 2 - Animate from right */}
-                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} >
                         <Box component="img" src={F1} sx={{ width: '100%', height: '50vh' }} alt={T1} />
                     </Grid>
 
                     {/* Grid 2 - Animate from right */}
-                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} >
                         <Box component="img" src={T1} sx={{ width: '100%', height: '50vh' }} alt={T1} />
                     </Grid>
-                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
+                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} >
                         <Stack spacing={2} sx={{ pl: { md: spacing(10), xs: 0 } }}>
                             <Typography variant='h4' color='primary' fontWeight={'bold'}>Tile & Sanitary Ware</Typography>
                             <Stack spacing={1} sx={{ pr: { md: spacing(5), xs: spacing(0) } }}>
@@ -86,7 +87,7 @@ const OurServices = () => {
                         </Stack>
                     </Grid>
 
-                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} >
                         <Stack spacing={2} sx={{ pr: { md: spacing(10), xs: 0 } }}>
                             <Typography variant='h4' color='primary' fontWeight={'semi-bold'}>Residential Interior Design & Fit-Out</Typography>
                             <Stack spacing={1} sx={{ pr: { md: spacing(5), xs: spacing(0) } }}>
@@ -100,7 +101,7 @@ const OurServices = () => {
                     </Grid>
 
                     {/* Grid 2 - Animate from right */}
-                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} >
                         <Box component="img" src={E1} sx={{ width: '100%', height: '50vh' }} alt={T1} />
                     </Grid>
                 </Grid>

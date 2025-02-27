@@ -1,53 +1,65 @@
-import { Box, Card, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Card, Divider, Stack, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { testiData } from "./testData";
 import { FormatQuoteRounded, Star, StarHalfSharp } from "@mui/icons-material";
-// import Testi from '../../assets/images/banners/testimonial.webp'
+import { useMemo } from "react";
+
 const OurTestimonial = () => {
     const theme = useTheme();
-    return (
-        <Box sx={{
-            backdropFilter: 'blur(20px)',
-            width: { xl: "86.3vw", md: "77vw", xs: '110vw' },
-            py: 3,
-            px: { md: 2, lg: 12, xl: 12, xs: 2 },
-            // background: `url(${Testi}) center/cover no-repeat`,
-            background: 'rgba(205, 109, 20, 0.85)',
-            transition: 'background 0.3s ease',
+    const isXL = useMediaQuery(theme.breakpoints.up("xl"));
+    const isLG = useMediaQuery(theme.breakpoints.up("lg"));
+    const isMD = useMediaQuery(theme.breakpoints.up("md"));
+    const isSM = useMediaQuery(theme.breakpoints.up("sm"));
 
-        }}>
+    // Determine `perPage` dynamically based on screen size
+    const perPage = isXL ? 4 : isLG ? 3 : isMD ? 2 : isSM ? 2 : 1;
+
+    // Memoized styles for performance optimization
+    const containerStyles = useMemo(() => ({
+        background: "#dfdfdf",
+        width: { xl: "98.9vw", lg: "100vw", md: "98.9vw", sm: '98.9vw', xs: "100vw" },
+        px: { lg: theme.spacing(11), md: theme.spacing(2), sm: theme.spacing(2), xs: theme.spacing(2) },
+        py: { md: 5, lg: 5, sm: 3, xs: 1 },
+    }), [theme]);
+
+    const titleStyles = useMemo(() => ({
+        variant: "h4",
+        fontWeight: "bold",
+        py: 2,
+        pl: 1,
+        fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2rem" }, // Responsive font size
+    }), []);
+
+    // Optimized Splide settings
+    const sliderOptions = useMemo(() => ({
+        type: "loop",
+        autoplay: true,
+        interval: 3000,
+        arrows: true,
+        pagination: false,
+        pauseOnHover: true,
+        perPage,
+    }), [perPage]);
+
+
+    return (
+        <Box sx={containerStyles}>
             {/* Header */}
             <Box>
-                <Typography variant="h4" fontWeight={'bold'} sx={{ fontWeight: "bold", textAlign: 'center', py: 2 }}>
+                <Typography {...titleStyles}>
                     Testminials
                 </Typography>
+                <Divider sx={{ background: theme.palette.primary.deep, ml: 1, height: '3px', width: '180px' }} />
             </Box>
 
             {/* Splide Slider */}
             <Splide
-                options={{
-                    type: "loop",
-                    autoplay: true,
-                    interval: 3000,
-                    arrows: true,
-                    pagination: false,
-                    pauseOnHover: false,
-                    perPage: 4,
-                    breakpoints: {
-                        1980: { perPage: 3 }, // xxl
-                        1368: { perPage: 3 }, // xl
-                        1024: { perPage: 3 }, // lg
-                        768: { perPage: 3 }, // md
-                        480: { perPage: 1 }, // sm
-                        0: { perPage: 1 }, // xs
-                    },
-                }}
+                options={sliderOptions}
             >
-
                 {testiData.map((item) => (
                     <SplideSlide key={item.id} style={{ display: "flex", justifyContent: "center" }}>
-                        <Card elevation={0} sx={{ zIndex: 1, border: "1px dashed #000", background: theme.palette.info.light, m: 1, p: 4 }}>
+                        <Card elevation={0} sx={{ zIndex: 1, border: "1px dashed #000", m: 1, background: theme.palette.info.light, p: 4 }}>
                             <Typography variant="body2"><FormatQuoteRounded sx={{ color: '#f05' }} />{item.description}<FormatQuoteRounded sx={{ color: '#f05' }} /></Typography>
                             <Stack spacing={1} justifyContent={'space-between'} mt={1} direction={'row'}>
                                 <Stack direction={'column'}>
