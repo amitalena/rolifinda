@@ -89,7 +89,7 @@ const WhyChooseUsN = () => {
 
                 {/* Content Section */}
                 <Grid item xs={12} lg={7} xl={7}>
-                    <Stack spacing={2} sx={{ mt: { xs: 10, sm: 10, md: 10, lg: 0, xl: 0 } }} >
+                    <Stack spacing={2} sx={{ mt: { xs: 3, sm: 5, md: 5, lg: 0, xl: 0 } }} >
                         <Typography variant='h4' fontWeight='bold'>
                             Why You Should Choose Us?
                         </Typography>

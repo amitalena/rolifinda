@@ -1,42 +1,28 @@
 import { Box, Stack, Typography, useTheme, Grid, Toolbar, Divider, Paper } from '@mui/material';
-import { motion } from 'framer-motion';
 import Ab1 from '../../assets/images/banners/blog.webp';
 import Banner from '../../utils/Banner';
 import OurTeam from '../teams/OurTeam';
 
 const AboutUs = () => {
     const { spacing, palette } = useTheme();
-
-    // Animation variants
-    const slideLeft = {
-        hidden: { x: -100, opacity: 0 },
-        visible: { x: 0, opacity: 1, transition: { duration: 0.3 } }
-    };
-
-    const slideRight = {
-        hidden: { x: 100, opacity: 0 },
-        visible: { x: 0, opacity: 1, transition: { duration: 0.3 } }
-    };
-
     return (
         <>
             <Toolbar />
             <Banner
                 title="About Us"
                 image={Ab1}
-                height="45vh"
+                height={{ sm: '35vh', md: '45vh', xs: '40vh', lg: '55vh', xl: '50vh' }}
                 titleVariant="h2"
-                titleStyles={{ fontFamily: 'Poppins', textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}
-                overlayColor="rgba(0,0,0,0.5)"
+                overlayColor="rgba(30,57,81,0.7)"
                 spacingConfig={{ lg: 8, md: 2, xs: 1 }}
-                containerStyles={{ overflow: 'hidden' }}
+                containerStyles={{ overflow: "hidden" }}
                 text="About Us"
             />
-            <Paper elevation={0} sx={{ px: { lg: spacing(17), md: spacing(1), xs: spacing(1) }, py: 2, m: 2, width: 'auto', backgroundColor: '#FFFFFF' }}>
+            <Paper elevation={0} sx={{ px: { lg: spacing(11), md: spacing(1), xs: spacing(1) }, py: 2, m: 2, width: 'auto', backgroundColor: '#FFFFFF' }}>
                 {/* Info Section */}
                 <Grid container spacing={5} >
                     {/* Grid 1 - Animate from left */}
-                    <Grid item md={7} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideLeft}>
+                    <Grid item md={7} xs={12} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                         <Box elevation={0}>
                             <Typography variant="h3" sx={{ mb: '10px' }}>
                                 About Us
@@ -54,7 +40,7 @@ const AboutUs = () => {
                     </Grid>
 
                     {/* Grid 2 - Animate from right */}
-                    <Grid item md={5} xs={12} component={motion.div} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={slideRight}>
+                    <Grid item md={5} xs={12} initial="hidden" whileInView="visible" viewport={{ once: true }} >
                         <Box component="img" src={Ab1} sx={{ width: '100%', height: '40vh' }} alt={Ab1} />
                     </Grid>
                 </Grid>

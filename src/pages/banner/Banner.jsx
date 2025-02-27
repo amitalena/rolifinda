@@ -43,7 +43,7 @@ const Banner = () => {
                             <SplideSlide key={i}>
                                 <Card elevation={0}>
                                     {/* Card Media (Image) */}
-                                    <Box sx={{ position: "relative", width: "100%", height: { md: "87vh", xs: '60vh' } }}>
+                                    <Box sx={{ position: "relative", width: "100%", height: { xl: '95vh', md: "87vh", sm: '70vh', xs: '45vh' } }}>
                                         <CardMedia
                                             component="img"
                                             image={item.imagePath}
@@ -61,8 +61,8 @@ const Banner = () => {
                                                 position: "absolute",
                                                 top: 0,
                                                 left: 0,
-                                                width: { xs: '50%', md: '100%' },
-                                                height: { xs: '50%', md: '100%' },
+                                                width: { xs: '100%', md: '100%' },
+                                                height: { xs: 'auto', md: '100%' },
                                                 backgroundColor: "rgba(0, 0, 0, 0.2)",
                                             }}
                                         />
@@ -72,22 +72,24 @@ const Banner = () => {
                                     <CardContent
                                         sx={{
                                             position: "absolute",
-                                            top: { xs: 0, sm: "10%", md: '20%', lg: '25%' },
+                                            top: { xs: 0, sm: "10%", md: '20%', lg: '25%', xl: '30%' },
                                             left: { xs: 0, sm: 0, md: '10%', lg: '10%' },
                                             backgroundColor: "rgba(0,0,0,0.7)",
                                             color: "white",
-                                            height: { md: "350px", xs: "100%" },
-                                            width: { md: "400px", xs: "100%" },
+                                            height: { md: '300px', sm: '80vh', xs: "100%" },
+                                            width: { md: "350px", lg: "400px", xl: "420px", xs: "100%" },
                                         }}
                                     >
-                                        <Stack spacing={2} justifyContent={'center'} alignItems={"center"} sx={{ p: 5 }}>
-                                            <Typography variant="h3" color="primary" fontWeight="bold">
-                                                {item.title}
-                                            </Typography>
-                                            <Typography variant="body2">
-                                                {item.description}
-                                            </Typography>
-                                        </Stack>
+                                        <Box sx={{ p: 5 }}>
+                                            <Stack spacing={2} justifyContent={'center'} alignItems={"center"} >
+                                                <Typography variant="h3" color="primary" fontWeight="bold">
+                                                    {item.title}
+                                                </Typography>
+                                                <Typography variant="body2">
+                                                    {item.description}
+                                                </Typography>
+                                            </Stack>
+                                        </Box>
                                     </CardContent>
                                 </Card>
                             </SplideSlide>

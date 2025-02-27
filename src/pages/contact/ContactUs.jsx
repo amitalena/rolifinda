@@ -81,11 +81,11 @@ const ContactUs = () => {
             <Banner
                 title="Contact Us"
                 image={C1}
-                height="45vh"
+                height={{ sm: '35vh', md: '45vh', xs: '40vh', lg: '55vh', xl: '50vh' }}
                 titleVariant="h2"
-                overlayColor="rgba(0,0,0,0.2)"
+                overlayColor="rgba(30,57,81,0.7)"
                 spacingConfig={{ lg: 8, md: 2, xs: 1 }}
-                containerStyles={{ overflow: 'hidden' }}
+                containerStyles={{ overflow: "hidden" }}
                 text="Contact Us"
             />
             <Box sx={{ px: { lg: spacing(12), md: spacing(2), sm: spacing(2), xs: spacing(2) }, background: palette.info.main }}>

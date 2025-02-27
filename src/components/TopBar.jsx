@@ -1,5 +1,5 @@
 import { MailOutline, PhoneAndroidOutlined, Search, } from "@mui/icons-material";
-import { Box, Divider, IconButton, OutlinedInput, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Divider, Button, OutlinedInput, Stack, Typography, useTheme } from "@mui/material";
 import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import Rolif_img from '../assets/images/logo/rolif.png';
@@ -68,18 +68,31 @@ const TopBar = () => {
                     </Box>
                     {/* search bar */}
                     <Stack spacing={1} direction={'row'} sx={{ alignItems: 'center', display: { md: 'flex', xs: 'block' }, }}>
-                        <OutlinedInput fullWidth type="search" size="small"
-                            sx={{
-                                width: '100%',
-                                color: '#000',
-                                border: '1px solid #939393',
-                                backgroundColor: '#FFFFFF',
-                                borderRadius: '1px'
-                            }}
-                            endAdornment={
-                                <IconButton variant="none" sx={{ background: palette.primary.main, }}><Search fontSize="small" /></IconButton>
-                            }
-                            placeholder="Search Package" />
+                        <Box sx={{ display: 'flex', border: '1px solid #111', alignItems: 'center', overflow: 'hidden' }}>
+                            <OutlinedInput
+                                fullWidth
+                                type="search"
+                                size="small"
+                                placeholder="Search here.."
+                                sx={{ border: 'none', flex: 1 }}
+                            />
+                            <Button
+                                sx={{
+                                    width: '50px',
+                                    height: '40px',
+                                    minWidth: '40px',
+                                    minHeight: '40px',
+                                    background: palette.primary.main,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    '&:hover': { background: palette.primary.dark }, // Hover effect
+                                }}
+                            >
+                                <Search fontSize="small" sx={{ color: '#fff' }} />
+                            </Button>
+                        </Box>
+
                     </Stack>
                     <Box
                         sx={{ display: { md: 'flex', xs: 'flex' }, alignItems: 'center', justifyContent: { md: 'center', xs: 'center' }, gap: 2, flexDirection: { md: 'row', xs: 'column' } }}
