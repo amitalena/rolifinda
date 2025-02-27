@@ -32,7 +32,7 @@ const AboutUs = () => {
                 containerStyles={{ overflow: 'hidden' }}
                 text="About Us"
             />
-            <Paper elevation={0} sx={{ px: { lg: spacing(17), md: spacing(1), xs: spacing(1) }, py: 2, m: 2, width: 'auto', backgroundColor: '#FFFFFF' }}>
+            <Paper elevation={0} sx={{ px: { lg: spacing(11), md: spacing(1), xs: spacing(1) }, py: 2, m: 2, width: 'auto', backgroundColor: '#FFFFFF' }}>
                 {/* Info Section */}
                 <Grid container spacing={5} >
                     {/* Grid 1 - Animate from left */}
