@@ -45,7 +45,7 @@ const Banner = ({ title, image, height, titleVariant = {}, text, overlayColor, s
             <Box
                 sx={{
                     px: { lg: spacing(spacingConfig.lg), md: spacing(spacingConfig.md), sm: spacing(spacingConfig.sm), xs: spacing(spacingConfig.xs) },
-                    position: 'relative', py: { md: 15, xs: 12, xl: 30, lg: 25, sm: 12 },
+                    position: 'relative', py: { md: 15, xs: 12, xl: 25, lg: 25, sm: 12 },
                     zIndex: 2
                 }}
             >
