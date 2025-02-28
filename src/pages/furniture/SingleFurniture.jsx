@@ -38,7 +38,7 @@ const SingleFurniture = () => {
 
     return (
         <ViewComponent
-            blog={mainBlog}
+            view={mainBlog}
             latestBlogs={latestBlogs}
         />
     );

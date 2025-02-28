@@ -4,6 +4,10 @@ import Furniture3 from '../../assets/images/interior/f3.webp';
 import Furniture4 from '../../assets/images/interior/f4.webp';
 import Furniture5 from '../../assets/images/interior/f5.webp';
 import Furniture6 from '../../assets/images/interior/f6.webp';
+import Sub_F1 from '../../assets/images/interior/f7.webp'
+import Sub_F2 from '../../assets/images/interior/f8.webp'
+import Sub_F3 from '../../assets/images/interior/f9.webp'
+import Sub_F4 from '../../assets/images/interior/f10.webp'
 
 export const furnitureData = [
     {
@@ -11,7 +15,13 @@ export const furnitureData = [
         title: "Modern Sofa Set",
         description: "A stylish and comfortable modern sofa set, perfect for contemporary living rooms.",
         imagePath: Furniture1,
-        createDate: "12-02-2025"
+        createDate: "12-02-2025",
+        images: [
+            { imagePath: Sub_F1 },
+            { imagePath: Sub_F2 },
+            { imagePath: Sub_F3 },
+            { imagePath: Sub_F4 },
+        ],
     },
     {
         id: 2,
